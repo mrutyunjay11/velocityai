@@ -1,0 +1,18 @@
+{
+  "ollama": null,
+  "velocityai": {
+    "framework": "VelocityAI (Ours)",
+    "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "format": "FP16 SafeTensors (Fused C++ NEON)",
+    "load_time_sec": 10.0172,
+    "ttft_sec": 1.9272,
+    "eval_time_sec": 2.4213,
+    "decode_time_sec": 0.4941,
+    "total_wall_sec": 12.4385,
+    "prompt_tokens": 39,
+    "generated_tokens": 20,
+    "tps": 8.26,
+    "decode_tps": 38.46,
+    "output_text": "The theory of relativity is a fundamental concept in physics that explains how the universe works. It was developed"
+  }
+}

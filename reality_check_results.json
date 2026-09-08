@@ -1,0 +1,265 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-09-05 10:47:04",
+    "device": "Apple Silicon (macOS arm64)",
+    "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "prompt_count": 25,
+    "max_tokens_per_prompt": 32,
+    "initial_thermal_state": 0,
+    "peak_thermal_state": 0,
+    "total_throttling_seconds": 0.0
+  },
+  "engines": {
+    "velocityai": {
+      "name": "VelocityAI (Ours)",
+      "format": "FP16 Lossless (4 P-Core NEON + SpinBarrier)",
+      "load_time_sec": 0.09,
+      "total_wall_sec": 21.7,
+      "stats": {
+        "count": 25,
+        "mean_tps": 76.3,
+        "median_tps": 76.6,
+        "p95_tps": 78.85,
+        "min_tps": 70.84,
+        "max_tps": 78.98,
+        "std_tps": 2.43,
+        "mean_itl_ms": 13.12,
+        "median_itl_ms": 13.06,
+        "p95_itl_ms": 13.81,
+        "mean_ttft_ms": 423.01
+      },
+      "thermal": {
+        "initial_thermal_state": 0,
+        "initial_thermal_desc": "Nominal",
+        "peak_thermal_state": 0,
+        "peak_thermal_desc": "Nominal",
+        "time_to_first_throttle_sec": null,
+        "total_throttle_seconds": 0.0,
+        "is_throttled": false
+      }
+    },
+    "mlx": {
+      "name": "Apple MLX",
+      "format": "BFloat16 (Apple Metal GPU)",
+      "load_time_sec": 0.7,
+      "total_wall_sec": 10.68,
+      "stats": {
+        "count": 25,
+        "mean_tps": 79.98,
+        "median_tps": 80.86,
+        "p95_tps": 82.04,
+        "min_tps": 68.15,
+        "max_tps": 82.36,
+        "std_tps": 2.76,
+        "mean_itl_ms": 12.52,
+        "median_itl_ms": 12.37,
+        "p95_itl_ms": 12.99,
+        "mean_ttft_ms": 0.0
+      },
+      "thermal": {
+        "initial_thermal_state": 0,
+        "initial_thermal_desc": "Nominal",
+        "peak_thermal_state": 0,
+        "peak_thermal_desc": "Nominal",
+        "time_to_first_throttle_sec": null,
+        "total_throttle_seconds": 0.0,
+        "is_throttled": false
+      }
+    },
+    "ollama": {
+      "name": "Ollama (llama.cpp)",
+      "format": "Q4_K_M (4-bit Quantized GGUF)",
+      "load_time_sec": 0.07,
+      "total_wall_sec": 10.42,
+      "stats": {
+        "count": 25,
+        "mean_tps": 103.76,
+        "median_tps": 104.78,
+        "p95_tps": 105.66,
+        "min_tps": 88.34,
+        "max_tps": 105.95,
+        "std_tps": 3.51,
+        "mean_itl_ms": 9.65,
+        "median_itl_ms": 9.54,
+        "p95_itl_ms": 10.1,
+        "mean_ttft_ms": 18.96
+      },
+      "thermal": {
+        "initial_thermal_state": 0,
+        "initial_thermal_desc": "Nominal",
+        "peak_thermal_state": 0,
+        "peak_thermal_desc": "Nominal",
+        "time_to_first_throttle_sec": null,
+        "total_throttle_seconds": 0.0,
+        "is_throttled": false
+      }
+    }
+  },
+  "quality_fidelity_comparison": [
+    {
+      "id": "math_01",
+      "domain": "Math & Logic",
+      "prompt": "What is 25 * 36? Show step-by-step mental calculation.",
+      "vel_text_snippet": "Step 1: Multiply 25 by 36.\n25 * 36 = 840\n\nStep 2:",
+      "mlx_text_snippet": "Step 1: Multiply 25 by 36.\n25 * 36 = 840\n\nStep 2:",
+      "oll_text_snippet": "Step 1: Multiply the numbers directly.\n\n25 * 36 = 840\n\nStep 2: Calculate the res...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.529,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_02",
+      "domain": "Math & Logic",
+      "prompt": "If a train travels 75 miles in 1 hour and 15 minutes, what is its average speed in mph?",
+      "vel_text_snippet": "To find the average speed, we need to divide the total distance traveled by the ...",
+      "mlx_text_snippet": "To find the average speed, we need to calculate the total distance traveled and ...",
+      "oll_text_snippet": "To find the average speed of the train, we need to divide the total distance tra...",
+      "vel_vs_mlx_similarity": 0.5,
+      "oll_vs_mlx_similarity": 0.37,
+      "quant_drift_detected": false
+    },
+    {
+      "id": "math_03",
+      "domain": "Math & Logic",
+      "prompt": "A store offers a 20% discount on a $150 item, then applies an 8% sales tax. What is the final price?",
+      "vel_text_snippet": "To find the final price, we need to calculate the discount and tax separately, t...",
+      "mlx_text_snippet": "To find the final price, we need to calculate the discount and tax separately, t...",
+      "oll_text_snippet": "To find the final price after applying both discounts and taxes, we need to calc...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.323,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_04",
+      "domain": "Math & Logic",
+      "prompt": "If you flip a fair coin 3 times, what is the exact probability of getting at least two heads?",
+      "vel_text_snippet": "The probability of getting at least two heads in 3 coin flips is 1 - 1/2^3 = 1 -...",
+      "mlx_text_snippet": "The probability of getting at least two heads in 3 coin flips is 1 - 1/2^3 = 1 -...",
+      "oll_text_snippet": "The probability of getting at least two heads in three flips of a fair coin can ...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.355,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_05",
+      "domain": "Math & Logic",
+      "prompt": "Find the sum of all integers from 1 to 100 using Gauss's formula.",
+      "vel_text_snippet": "Gauss's formula is a method for finding the sum of the first n natural numbers. ...",
+      "mlx_text_snippet": "Gauss's formula is a method for finding the sum of the first n natural numbers. ...",
+      "oll_text_snippet": "Gauss's formula is an elegant method for calculating the sum of consecutive inte...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.367,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_06",
+      "domain": "Math & Logic",
+      "prompt": "If 5 machines can make 5 widgets in 5 minutes, how many minutes does it take 100 machines to make 100 widgets?",
+      "vel_text_snippet": "To solve this problem, we need to understand the relationship between the number...",
+      "mlx_text_snippet": "To solve this problem, we need to understand the relationship between the number...",
+      "oll_text_snippet": "To solve this problem, we need to understand the relationship between the number...",
+      "vel_vs_mlx_similarity": 0.76,
+      "oll_vs_mlx_similarity": 0.833,
+      "quant_drift_detected": false
+    },
+    {
+      "id": "math_07",
+      "domain": "Math & Logic",
+      "prompt": "A father is 3 times as old as his son. In 12 years, he will be twice as old. How old are they now?",
+      "vel_text_snippet": "Let's break this down step by step. We know the father is 3 times as old as his ...",
+      "mlx_text_snippet": "Let's break this down step by step. We know the father is 3 times as old as his ...",
+      "oll_text_snippet": "Let's break this down step-by-step:\n\n1. Let's say the son's current age is x.\n2....",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.3,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_08",
+      "domain": "Math & Logic",
+      "prompt": "What is the hypotenuse of a right triangle with legs of length 7 and 24?",
+      "vel_text_snippet": "The hypotenuse of a right triangle is the side opposite the right angle. In this...",
+      "mlx_text_snippet": "The hypotenuse of a right triangle is the side opposite the right angle. In this...",
+      "oll_text_snippet": "The Pythagorean theorem states that in a right-angled triangle, the square of th...",
+      "vel_vs_mlx_similarity": 0.9,
+      "oll_vs_mlx_similarity": 0.345,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_09",
+      "domain": "Math & Logic",
+      "prompt": "Calculate 2^10 and explain how it relates to computing memory.",
+      "vel_text_snippet": "2^10 is equal to 1024. This is because 2 to the power of 10 is equal to 102",
+      "mlx_text_snippet": "2^10 is equal to 1024. This is because 2 to the power of 10 is equal to 102",
+      "oll_text_snippet": "As an AI, I don't have the capability to perform calculations or compute large n...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.083,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "math_10",
+      "domain": "Math & Logic",
+      "prompt": "If you have 12 red balls and 8 blue balls in a bag, what is the probability of drawing two red balls in a row without replacement?",
+      "vel_text_snippet": "To find the probability of drawing two red balls in a row without replacement, w...",
+      "mlx_text_snippet": "To find the probability of drawing two red balls in a row without replacement, w...",
+      "oll_text_snippet": "To find the probability of drawing two red balls in a row without replacement, w...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.625,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "code_01",
+      "domain": "Code Generation",
+      "prompt": "Write a Python function to check if a string is a palindrome ignoring spaces and punctuation.",
+      "vel_text_snippet": "Here's a Python function that uses regular expressions to remove spaces and punc...",
+      "mlx_text_snippet": "Here's a Python function that uses regular expressions to remove spaces and punc...",
+      "oll_text_snippet": "Here's a simple Python function that checks if a given string is a palindrome:\n\n...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.345,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "code_02",
+      "domain": "Code Generation",
+      "prompt": "Write a Python function implementing binary search on a sorted list with comments.",
+      "vel_text_snippet": "```python\ndef binary_search(sorted_list, target):\n    \"\"\"\n    Performs binary se...",
+      "mlx_text_snippet": "```python\ndef binary_search(sorted_list, target):\n    \"\"\"\n    Performs binary se...",
+      "oll_text_snippet": "```python\ndef binary_search(sorted_list, target):\n    \"\"\"\n    Performs binary se...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 1.0,
+      "quant_drift_detected": false
+    },
+    {
+      "id": "code_03",
+      "domain": "Code Generation",
+      "prompt": "How do you reverse a singly linked list in Python? Provide clean code.",
+      "vel_text_snippet": "Here's a Python function to reverse a singly linked list:\n\n```python\nclass Node:...",
+      "mlx_text_snippet": "Here's a Python function to reverse a singly linked list:\n\n```python\nclass Node:...",
+      "oll_text_snippet": "Here's a simple implementation of reversing a singly linked list in Python:\n\n```...",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 0.435,
+      "quant_drift_detected": true
+    },
+    {
+      "id": "code_04",
+      "domain": "Code Generation",
+      "prompt": "Write a Python function using recursion to compute the nth Fibonacci number with memoization.",
+      "vel_text_snippet": "Here's a Python function using recursion to compute the nth Fibonacci number wit...",
+      "mlx_text_snippet": "```python\ndef fibonacci(n, memo={}):\n    if n <= 0:\n        return 0\n    elif n ...",
+      "oll_text_snippet": "Here's a recursive implementation of the Fibonacci sequence using memoization in...",
+      "vel_vs_mlx_similarity": 0.107,
+      "oll_vs_mlx_similarity": 0.2,
+      "quant_drift_detected": false
+    },
+    {
+      "id": "code_05",
+      "domain": "Code Generation",
+      "prompt": "Write an SQL query to find the second highest salary from an Employee table.",
+      "vel_text_snippet": "SELECT * FROM Employee WHERE Salary > (SELECT MAX(Salary) FROM Employee);",
+      "mlx_text_snippet": "SELECT * FROM Employee WHERE Salary > (SELECT MAX(Salary) FROM Employee);",
+      "oll_text_snippet": "SELECT * FROM Employee WHERE Salary > (SELECT MAX(Salary) FROM Employee);",
+      "vel_vs_mlx_similarity": 1.0,
+      "oll_vs_mlx_similarity": 1.0,
+      "quant_drift_detected": false
+    }
+  ]
+}

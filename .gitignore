@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dylib
+.pytest_cache/
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# C / C++ Compiled Objects
+*.o
+*.obj
+bench_gemv
+
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
