@@ -1,7 +1,7 @@
 #include "csrc/core/tensor.h"
 #include "csrc/kernels/cpu/cpu_kernels.h"
 #include "csrc/kernels/metal/metal_backend.h"
-#include "csrc/kernels/cuda/cuda_backend.h"
+#include "csrc/kernels/metal/metal_backend.h"
 #include <cstring>
 #include <random>
 #include <numeric>
@@ -433,7 +433,7 @@ Tensor Tensor::matmul(const Tensor& other) const {
         throw std::runtime_error("Metal backend not compiled on this platform.");
 #endif
     } else if (device_.is_cuda()) {
-        velocityai::cuda::matmul_cuda(a, b, out);
+        throw std::runtime_error("CUDA backend not available.");
     } else {
         // CPU execution
         const float* A = a.data_ptr<float>();

@@ -123,7 +123,8 @@ void FastLlamaDecoder::add_layer(
     const Tensor& gate_up_weight,
     const Tensor& down_weight,
     Tensor& k_cache,
-    Tensor& v_cache
+    Tensor& v_cache,
+    const Tensor* qkv_bias
 ) {
     Tensor in_norm_c = input_layernorm_weight.contiguous();
     Tensor qkv_c = qkv_weight.contiguous();
@@ -152,6 +153,14 @@ void FastLlamaDecoder::add_layer(
     lw.down_weight = down_c.data_ptr();
     lw.k_cache = kc_c.data_ptr<float>();
     lw.v_cache = vc_c.data_ptr<float>();
+    
+    if (qkv_bias != nullptr) {
+        Tensor qb_c = qkv_bias->contiguous();
+        pinned_tensors_.push_back(qb_c);
+        lw.qkv_bias = qb_c.data_ptr<float>();
+    } else {
+        lw.qkv_bias = nullptr;
+    }
 
     layers_.push_back(lw);
 }
@@ -532,6 +541,12 @@ int64_t FastLlamaDecoder::decode_step(int64_t token_id, int64_t start_pos) {
         // Parallel QKV Projection
         run_parallel_task(TASK_QKV, layer.qkv_weight, qkv_buf_.data(), dim_, qkv_dim);
 
+        if (layer.qkv_bias) {
+            for (int64_t i = 0; i < qkv_dim; ++i) {
+                qkv_buf_[i] += layer.qkv_bias[i];
+            }
+        }
+
         // Fused Decode Attention (with RoPE & KV Cache update)
         kernel_attention_decode_f32(
             qkv_buf_.data(),
@@ -646,6 +661,12 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
 
             // QKV GEMV
             run_parallel_task(TASK_QKV, layer.qkv_weight, qkv_buf_.data(), dim_, qkv_dim);
+
+            if (layer.qkv_bias) {
+                for (int64_t i = 0; i < qkv_dim; ++i) {
+                    qkv_buf_[i] += layer.qkv_bias[i];
+                }
+            }
 
             // Attention (applies RoPE at position 'pos', updates KV cache, and computes context)
             const float* cos_ptr = cos_table_.data() + pos * head_dim_;

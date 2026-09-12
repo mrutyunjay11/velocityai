@@ -349,7 +349,8 @@ void init_tensor_bindings(py::module_& m) {
             py::arg("gate_up_weight"),
             py::arg("down_weight"),
             py::arg("k_cache"),
-            py::arg("v_cache"))
+            py::arg("v_cache"),
+            py::arg("qkv_bias") = nullptr)
         .def("decode_step", &FastLlamaDecoder::decode_step, py::arg("token_id"), py::arg("start_pos"))
         .def("decode_step_logits", &FastLlamaDecoder::decode_step_logits, py::arg("token_id"), py::arg("start_pos"))
         .def("prefill", &FastLlamaDecoder::prefill, py::arg("prompt_tokens"))

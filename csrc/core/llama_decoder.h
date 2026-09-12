@@ -51,6 +51,7 @@ struct FastLayerWeights {
     const float* post_attn_layernorm_weight;
     const void* gate_up_weight;
     const void* down_weight;
+    const float* qkv_bias;
     float* k_cache;
     float* v_cache;
 };
@@ -93,7 +94,8 @@ public:
         const Tensor& gate_up_weight,
         const Tensor& down_weight,
         Tensor& k_cache,
-        Tensor& v_cache
+        Tensor& v_cache,
+        const Tensor* qkv_bias = nullptr
     );
 
     int64_t decode_step(int64_t token_id, int64_t start_pos);

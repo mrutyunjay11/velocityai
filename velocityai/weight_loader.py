@@ -93,6 +93,14 @@ def load_huggingface_model(model_dir_or_id: str, device: str = "cpu") -> tuple[L
             wqkv = np.ascontiguousarray(np.vstack([wq, wk, wv])).astype(np.float16)
             state_dict[prefix + "self_attn.qkv_proj.weight"] = wqkv
             
+            # Pre-fuse QKV biases (if they exist):
+            if prefix + "self_attn.q_proj.bias" in raw_state_dict:
+                bq = raw_state_dict[prefix + "self_attn.q_proj.bias"]
+                bk = raw_state_dict[prefix + "self_attn.k_proj.bias"]
+                bv = raw_state_dict[prefix + "self_attn.v_proj.bias"]
+                bqkv = np.ascontiguousarray(np.concatenate([bq, bk, bv])).astype(np.float32)
+                state_dict[prefix + "self_attn.qkv_proj.bias"] = bqkv
+            
             # O proj: (hidden_size, hidden_size) in float16
             wo = np.ascontiguousarray(raw_state_dict[prefix + "self_attn.o_proj.weight"]).astype(np.float16)
             state_dict[prefix + "self_attn.o_proj.weight"] = wo
@@ -142,8 +150,11 @@ def load_huggingface_model(model_dir_or_id: str, device: str = "cpu") -> tuple[L
             layer.post_attention_layernorm.weight = vai.from_numpy(state_dict[prefix + "post_attention_layernorm.weight"])
             
         if prefix + "self_attn.qkv_proj.weight" in state_dict:
-            layer.self_attn.qkv_proj = Linear(layer.self_attn.dim, state_dict[prefix + "self_attn.qkv_proj.weight"].shape[0], bias=False, init_weights=False)
+            has_bias = prefix + "self_attn.qkv_proj.bias" in state_dict
+            layer.self_attn.qkv_proj = Linear(layer.self_attn.dim, state_dict[prefix + "self_attn.qkv_proj.weight"].shape[0], bias=has_bias, init_weights=False)
             layer.self_attn.qkv_proj.weight = vai.from_numpy(state_dict[prefix + "self_attn.qkv_proj.weight"])
+            if has_bias:
+                layer.self_attn.qkv_proj.bias = vai.from_numpy(state_dict[prefix + "self_attn.qkv_proj.bias"])
         if prefix + "self_attn.o_proj.weight" in state_dict:
             layer.self_attn.o_proj.weight = vai.from_numpy(state_dict[prefix + "self_attn.o_proj.weight"])
             

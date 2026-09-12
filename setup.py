@@ -44,7 +44,7 @@ ext_modules = [
             "csrc/kernels/cpu/conv2d.cpp",
             "csrc/kernels/cpu/loss.cpp",
             "csrc/kernels/cpu/embedding.cpp",
-            "csrc/kernels/cuda/cuda_backend.cpp",
+
             "csrc/kernels/metal/metal_backend.mm",
             "csrc/bindings/pybind_tensor.cpp",
             "csrc/bindings/pybind_module.cpp",

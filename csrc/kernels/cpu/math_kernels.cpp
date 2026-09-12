@@ -214,8 +214,9 @@ static inline dispatch_queue_t get_compute_queue() {
 extern "C" void kernel_gemv_fp16(const float* x, const void* W, float* out, int64_t K, int64_t N) {
 #if defined(__APPLE__) && defined(__aarch64__)
     const __fp16* W16 = reinterpret_cast<const __fp16*>(W);
-    // Convert x to __fp16 on stack (K <= 8192)
-    __fp16 x16[8192];
+    // Dynamically allocate to avoid stack overflow for large K (e.g. Qwen2.5 intermediate_size=8960)
+    std::unique_ptr<__fp16[]> x16_buf(new __fp16[K]);
+    __fp16* x16 = x16_buf.get();
     int64_t i = 0;
     for (; i <= K - 8; i += 8) {
         float32x4_t v0 = vld1q_f32(x + i);
@@ -268,7 +269,9 @@ extern "C" void kernel_gemv_fp16(const float* x, const void* W, float* out, int6
 extern "C" void kernel_gemv_fp16_acc(const float* x, const void* W, float* out, int64_t K, int64_t N) {
 #if defined(__APPLE__) && defined(__aarch64__)
     const __fp16* W16 = reinterpret_cast<const __fp16*>(W);
-    __fp16 x16[8192];
+    // Dynamically allocate to avoid stack overflow
+    std::unique_ptr<__fp16[]> x16_buf(new __fp16[K]);
+    __fp16* x16 = x16_buf.get();
     int64_t i = 0;
     for (; i <= K - 8; i += 8) {
         float32x4_t v0 = vld1q_f32(x + i);
@@ -322,40 +325,29 @@ extern "C" void kernel_gemv_fp16_acc(const float* x, const void* W, float* out, 
 extern "C" void kernel_gemm_fp16(const float* x, const void* W, float* out, int64_t M, int64_t K, int64_t N) {
 #if defined(__APPLE__) && defined(__aarch64__)
     const __fp16* W16 = reinterpret_cast<const __fp16*>(W);
-    std::vector<__fp16> x16(M * K);
-    for (int64_t i = 0; i < M * K; ++i) {
-        x16[i] = static_cast<__fp16>(x[i]);
-    }
-    const __fp16* x16_ptr = x16.data();
-
-    int n_threads = (N >= 512) ? 4 : 2;
-    int64_t chunk = N / n_threads;
-
+    // Allocate a temporary float32 buffer for the weights without zero-initializing!
+    // This is for M > 1 (prefill) so the cast overhead is easily amortized by cblas_sgemm speed!
+    std::unique_ptr<float[]> w_f32(new float[N * K]);
+    float* w_f32_ptr = w_f32.get();
+    
+    // Convert FP16 weights to FP32.
+    // Multithread the cast to make it lightning fast.
+    int n_threads = (N * K >= 1024*1024) ? 8 : 2;
+    int64_t chunk = (N * K) / n_threads;
     dispatch_apply(n_threads, get_compute_queue(), ^(size_t t) {
         int64_t start = t * chunk;
-        int64_t end = (t == static_cast<size_t>(n_threads - 1)) ? N : (t + 1) * chunk;
-        for (int64_t m = 0; m < M; ++m) {
-            const __fp16* xm = x16_ptr + m * K;
-            float* out_m = out + m * N;
-            for (int64_t j = start; j < end; ++j) {
-                const __fp16* w_row = W16 + j * K;
-                float16x8_t v0 = vdupq_n_f16(0.0f), v1 = vdupq_n_f16(0.0f);
-                float16x8_t v2 = vdupq_n_f16(0.0f), v3 = vdupq_n_f16(0.0f);
-                int64_t k = 0;
-                for (; k <= K - 32; k += 32) {
-                    v0 = vfmaq_f16(v0, vld1q_f16(xm + k), vld1q_f16(w_row + k));
-                    v1 = vfmaq_f16(v1, vld1q_f16(xm + k + 8), vld1q_f16(w_row + k + 8));
-                    v2 = vfmaq_f16(v2, vld1q_f16(xm + k + 16), vld1q_f16(w_row + k + 16));
-                    v3 = vfmaq_f16(v3, vld1q_f16(xm + k + 24), vld1q_f16(w_row + k + 24));
-                }
-                float16x8_t vsum = vaddq_f16(vaddq_f16(v0, v1), vaddq_f16(v2, v3));
-                float16x4_t vsum_low = vadd_f16(vget_low_f16(vsum), vget_high_f16(vsum));
-                float sum = vaddvq_f32(vcvt_f32_f16(vsum_low));
-                for (; k < K; ++k) sum += static_cast<float>(xm[k]) * static_cast<float>(w_row[k]);
-                out_m[j] = sum;
-            }
+        int64_t end = (t == static_cast<size_t>(n_threads - 1)) ? (N * K) : (t + 1) * chunk;
+        for (int64_t i = start; i < end; ++i) {
+            w_f32_ptr[i] = static_cast<float>(W16[i]);
         }
     });
+
+    // Call Apple's hyper-optimized BLAS SGEMM!
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans,
+                static_cast<int>(M), static_cast<int>(N), static_cast<int>(K),
+                1.0f, x, static_cast<int>(K),
+                w_f32_ptr, static_cast<int>(K),
+                0.0f, out, static_cast<int>(N));
 #else
     for (int64_t m = 0; m < M; ++m) {
         for (int64_t j = 0; j < N; ++j) {
@@ -373,7 +365,9 @@ extern "C" void kernel_gemm_fp16(const float* x, const void* W, float* out, int6
 extern "C" void kernel_gemv_fp16_fused_swiglu(const float* x, const void* W_gate_up, float* hidden_out, int64_t K, int64_t intermediate) {
 #if defined(__APPLE__) && defined(__aarch64__)
     const __fp16* W16 = reinterpret_cast<const __fp16*>(W_gate_up);
-    __fp16 x16[8192];
+    // Dynamically allocate to avoid stack overflow
+    std::unique_ptr<__fp16[]> x16_buf(new __fp16[K]);
+    __fp16* x16 = x16_buf.get();
     int64_t i = 0;
     for (; i <= K - 8; i += 8) {
         float32x4_t v0 = vld1q_f32(x + i);

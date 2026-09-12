@@ -1,0 +1,94 @@
+\begin{thebibliography}{10}
+
+\bibitem{allal2024smollm2}
+L.~Allal, A.~Lozhkov, G.~Penedo, et~al.
+\newblock Smollm2: When small language models become powerful edge assistants.
+\newblock Technical report, Hugging Face, 2024.
+
+\bibitem{apple2014qos}
+{Apple Inc.}
+\newblock Energy efficiency guide for mac apps: Quality of service (qos).
+\newblock
+  \url{https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/PrioritizeWorkAtTheTaskLevel.html},
+  2014.
+
+\bibitem{arm2022architecture}
+{Arm Limited}.
+\newblock {\em Arm Architecture Reference Manual for A-profile architecture},
+  2022.
+\newblock DDI 0487I.a.
+
+\bibitem{dettmers2022llm}
+T.~Dettmers, M.~Lewis, Y.~Belkada, and L.~Zettlemoyer.
+\newblock Llm.int8(): 8-bit matrix multiplication for transformers at scale.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2022.
+
+\bibitem{dubey2024llama3}
+A.~Dubey, A.~Jauhri, A.~Pandey, et~al.
+\newblock The llama 3 herd of models.
+\newblock {\em arXiv preprint arXiv:2407.21783}, 2024.
+
+\bibitem{frantar2022gptq}
+E.~Frantar, S.~Ashkboos, T.~Hoefler, and D.~Alistarh.
+\newblock Gptq: Accurate post-training quantization for generative pre-trained
+  transformers.
+\newblock {\em arXiv preprint arXiv:2210.17323}, 2022.
+
+\bibitem{gerganov2023llama}
+G.~Gerganov.
+\newblock llama.cpp: Port of facebook's llama model in c/c++.
+\newblock \url{https://github.com/ggerganov/llama.cpp}, 2023.
+
+\bibitem{hannun2023mlx}
+A.~Hannun, J.~Chung, et~al.
+\newblock Mlx: Efficient machine learning on apple silicon.
+\newblock {\em Apple Machine Learning Research}, 2023.
+
+\bibitem{safetensors2023}
+{Hugging Face}.
+\newblock Safetensors: A simple, safe, and fast format for storing and
+  distributing tensors.
+\newblock \url{https://github.com/huggingface/safetensors}, 2023.
+
+\bibitem{lin2023awq}
+J.~Lin, J.~Tang, H.~Tang, et~al.
+\newblock Awq: Activation-aware weight quantization for llm compression and
+  acceleration.
+\newblock In {\em Proceedings of Machine Learning and Systems (MLSys)}, 2024.
+
+\bibitem{paszke2019pytorch}
+A.~Paszke, S.~Gross, F.~Massa, et~al.
+\newblock Pytorch: An imperative style, high-performance deep learning library.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2019.
+
+\bibitem{qian2023chatdev}
+C.~Qian, X.~Cong, C.~Yang, et~al.
+\newblock Communicative agents for software development.
+\newblock {\em arXiv preprint arXiv:2307.07924}, 2023.
+
+\bibitem{qwen2024qwen25}
+Qwen Team.
+\newblock Qwen2.5: A comprehensive series of large language models.
+\newblock Technical report, Alibaba Group, 2024.
+
+\bibitem{williams2009roofline}
+S.~Williams, A.~Waterman, and D.~Patterson.
+\newblock Roofline: an insightful visual performance model for multicore
+  architectures.
+\newblock {\em Communications of the ACM}, 52(4):65--76, 2009.
+
+\bibitem{wolf2020transformers}
+T.~Wolf, L.~Debut, V.~Sanh, et~al.
+\newblock Transformers: State-of-the-art natural language processing.
+\newblock In {\em Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}, pages 38--45, 2020.
+
+\bibitem{wu2023autogen}
+Q.~Wu, G.~Bansal, J.~Zhang, et~al.
+\newblock Autogen: Enabling next-gen llm applications via multi-agent
+  conversation.
+\newblock {\em arXiv preprint arXiv:2308.08155}, 2023.
+
+\end{thebibliography}

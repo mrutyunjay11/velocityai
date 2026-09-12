@@ -1,0 +1,858 @@
+{
+  "HuggingFaceTB/SmolLM2-360M-Instruct": {
+    "VelocityAI": [
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.1451568603515625,
+        "warmup_time_sec": 0.18280744552612305,
+        "prefill_time_sec": 0.16884183883666992,
+        "decode_time_sec": 2.943107843399048,
+        "total_wall_sec": 3.4399139881134033,
+        "generated_tokens": 213,
+        "tps": 72.03269852155924,
+        "output_text": "Camels are able to survive for long periods without water because they have a unique adaptation that allows them to conserve water. They have a thick layer of fat called humps, which stores a significant amount of fat. This fat is essential for camels, as it serves as a source of energy and helps to regulate their body temperature.\n\nAdditionally, camels have a unique digestive system that allows them to break down and extract nutrients from the limited water they consume. They have a specialized stomach that can ferment the water they consume, which helps to conserve water.\n\nCamels also have a thick layer of hair that helps to insulate them from the harsh desert environment, reducing the amount of water they lose through sweating. They also have a well-developed sense of smell, which helps them to locate water sources and avoid areas with low water availability.\n\nOverall, camels' ability to survive for long periods without water is due to their unique combination of adaptations, including their fat reserves, digestive system, and ability to conserve water through their hair and skin.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12360811233520508,
+        "warmup_time_sec": 0.204024076461792,
+        "prefill_time_sec": 0.1894829273223877,
+        "decode_time_sec": 0.2734389305114746,
+        "total_wall_sec": 0.7905540466308594,
+        "generated_tokens": 23,
+        "tps": 80.45672194097757,
+        "output_text": "Alice's parents have three daughters: Amy, Jessy, and what's the name of the third daughter?",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12599396705627441,
+        "warmup_time_sec": 0.18944907188415527,
+        "prefill_time_sec": 0.16462492942810059,
+        "decode_time_sec": 0.39980006217956543,
+        "total_wall_sec": 0.8798680305480957,
+        "generated_tokens": 33,
+        "tps": 80.04000756164861,
+        "output_text": "The UN did not give the land in New York City to build their headquarters. The UN's headquarters are located in New York City, New York, USA.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12404918670654297,
+        "warmup_time_sec": 0.18775415420532227,
+        "prefill_time_sec": 0.15483689308166504,
+        "decode_time_sec": 0.08337783813476562,
+        "total_wall_sec": 0.5500180721282959,
+        "generated_tokens": 8,
+        "tps": 83.95516310564122,
+        "output_text": "Mobile is bad for human health.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12026309967041016,
+        "warmup_time_sec": 0.1838057041168213,
+        "prefill_time_sec": 0.1544351577758789,
+        "decode_time_sec": 1.5303499698638916,
+        "total_wall_sec": 1.988853931427002,
+        "generated_tokens": 124,
+        "tps": 80.37377228879193,
+        "output_text": "A polygon is a two-dimensional shape with straight sides. It is a closed shape that has a finite number of sides, and each side is a straight line segment. Polygons can be simple, meaning they have no holes or holes in them, or they can be complex, with holes or holes in them. Polygons can be regular, meaning all sides and angles are equal, or irregular, meaning they are not all equal. Polygons can be simple or complex, and they can be used to model real-world shapes, like the outline of a house or the shape of a planet.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12076616287231445,
+        "warmup_time_sec": 0.1799907684326172,
+        "prefill_time_sec": 0.16646909713745117,
+        "decode_time_sec": 0.832895040512085,
+        "total_wall_sec": 1.3001210689544678,
+        "generated_tokens": 69,
+        "tps": 81.64294021752355,
+        "output_text": "As a Hugging Face assistant, I don't have access to personal data unless it's shared with me in the course of our conversation. However, I can tell you that Michelle MacLaren is a well-known actress in the television industry. She has directed several notable projects, including the HBO series \"Game of Thrones.\"",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12066507339477539,
+        "warmup_time_sec": 0.18033385276794434,
+        "prefill_time_sec": 0.1611168384552002,
+        "decode_time_sec": 5.316005229949951,
+        "total_wall_sec": 5.778120994567871,
+        "generated_tokens": 375,
+        "tps": 70.35358014565405,
+        "output_text": "As a Hugging Face AI assistant, I'm designed to provide helpful and informative responses. However, I can certainly provide some unique curtain tie backs that you can make yourself. Here are a few ideas:\n\n1. **Handmade Ribbon Tie Back**: This is a classic, but still very effective tie back. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful and unique design.\n\n2. **Handmade Ribbon Tie Back with a Twist**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n3. **Handmade Ribbon Tie Back with a Loop**: This tie back is a bit more modern, but still very effective. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n4. **Handmade Ribbon Tie Back with a Loop and a Twist**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n5. **Handmade Ribbon Tie Back with a Loop and a Twist and a Loop**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\nRemember, the key to a great tie back is to make it unique and personal. Don't be afraid to experiment and try out different designs and materials. Happy crafting!",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12079286575317383,
+        "warmup_time_sec": 0.18892216682434082,
+        "prefill_time_sec": 0.16163992881774902,
+        "decode_time_sec": 0.1794118881225586,
+        "total_wall_sec": 0.6507668495178223,
+        "generated_tokens": 16,
+        "tps": 83.60649986445327,
+        "output_text": "1. Nike Golf\n2. TaylorMade Golf\n3. TaylorMade Golf",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12011504173278809,
+        "warmup_time_sec": 0.18575811386108398,
+        "prefill_time_sec": 0.16395187377929688,
+        "decode_time_sec": 0.8734171390533447,
+        "total_wall_sec": 1.3432421684265137,
+        "generated_tokens": 72,
+        "tps": 81.28990928315595,
+        "output_text": "I'm sorry, but as a text-based model, I don't have the ability to access real-time data or current events. I can provide general information about Olympic history, but I don't have the capability to provide specific details about individual athletes. I recommend checking the official Olympic website or a reliable sports news source for the most accurate information.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12033200263977051,
+        "warmup_time_sec": 0.18228793144226074,
+        "prefill_time_sec": 0.16557741165161133,
+        "decode_time_sec": 0.22781968116760254,
+        "total_wall_sec": 0.6960170269012451,
+        "generated_tokens": 20,
+        "tps": 83.39929150380149,
+        "output_text": "The Dutch artist who painted \"Girl with a Pearl Earring\" is Johannes Vermeer.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12082719802856445,
+        "warmup_time_sec": 0.18081307411193848,
+        "prefill_time_sec": 0.15845680236816406,
+        "decode_time_sec": 0.8303301334381104,
+        "total_wall_sec": 1.2904272079467773,
+        "generated_tokens": 69,
+        "tps": 81.89513696008537,
+        "output_text": "When the sun goes down, the sky turns a deep shade of blue, and the stars begin to twinkle in the night sky. The air cools down, and the temperature drops, making it feel cooler and more comfortable. The darkness is a peaceful and serene time, and many people find it a great time to relax and unwind.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12349796295166016,
+        "warmup_time_sec": 0.18248391151428223,
+        "prefill_time_sec": 0.15348601341247559,
+        "decode_time_sec": 0.6415848731994629,
+        "total_wall_sec": 1.1010527610778809,
+        "generated_tokens": 54,
+        "tps": 82.60793265854132,
+        "output_text": "A verb is a word that represents an action or a state of being. It is used to describe what something is doing or what someone or something is experiencing. For example, \"run,\" \"eat,\" \"jump,\" and \"smell\" are all verbs.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.1206967830657959,
+        "warmup_time_sec": 0.1813063621520996,
+        "prefill_time_sec": 0.16368675231933594,
+        "decode_time_sec": 0.26519298553466797,
+        "total_wall_sec": 0.7308828830718994,
+        "generated_tokens": 23,
+        "tps": 82.95845365458959,
+        "output_text": "The King of Holland in 1806 was William I of Nassau-Weelke.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12222504615783691,
+        "warmup_time_sec": 0.18388772010803223,
+        "prefill_time_sec": 0.16142702102661133,
+        "decode_time_sec": 0.3736691474914551,
+        "total_wall_sec": 0.8412089347839355,
+        "generated_tokens": 26,
+        "tps": 66.9041053237388,
+        "output_text": "Billy the Kid was portrayed by actor John Wayne in the 1946 film \"The Left Handed Gun\".",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.1228630542755127,
+        "warmup_time_sec": 0.18579888343811035,
+        "prefill_time_sec": 0.1585988998413086,
+        "decode_time_sec": 1.1967623233795166,
+        "total_wall_sec": 1.6640231609344482,
+        "generated_tokens": 75,
+        "tps": 61.833497390720545,
+        "output_text": "Syd Barrett left Pink Floyd in 1980 due to a disagreement with the band's management. He was unhappy with the direction of the band and felt that the band was losing its creative energy. Barrett was a key member of the band from 1965 to 1980, and his departure was a significant blow to the band.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12325239181518555,
+        "warmup_time_sec": 0.1817629337310791,
+        "prefill_time_sec": 0.15615272521972656,
+        "decode_time_sec": 0.808347225189209,
+        "total_wall_sec": 1.2695152759552002,
+        "generated_tokens": 67,
+        "tps": 81.64808134839758,
+        "output_text": "Underwriting is the process of assessing the risk of a loan or credit application and determining whether it is suitable for the lender to extend credit to the borrower. It involves evaluating various factors such as the borrower's credit history, income, employment, and other financial information to determine the likelihood of the borrower repaying the loan on time.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12078285217285156,
+        "warmup_time_sec": 0.1822352409362793,
+        "prefill_time_sec": 0.1619267463684082,
+        "decode_time_sec": 4.720103025436401,
+        "total_wall_sec": 5.18504786491394,
+        "generated_tokens": 339,
+        "tps": 71.60860646018418,
+        "output_text": "1. Comfortable seating: The coffee shop should have comfortable seating areas where customers can relax and socialize.\n\n2. Good atmosphere: The coffee shop should have a pleasant atmosphere that makes customers feel at home. This can be achieved by using natural light, comfortable lighting, and soothing music.\n\n3. Good food: The coffee shop should have a variety of delicious and healthy food options. This can include a variety of pastries, sandwiches, salads, and other items.\n\n4. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.\n\n5. Good selection: The coffee shop should have a variety of coffee drinks, teas, and other beverages. This can include a variety of coffee beans, tea blends, and other drinks.\n\n6. Good ambiance: The coffee shop should have a good ambiance. This can include a comfortable background noise, good lighting, and good music.\n\n7. Good customer feedback: The coffee shop should have good customer feedback. This can include comments from customers about the quality of the coffee, the cleanliness of the shop, and the overall atmosphere.\n\n8. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.\n\n9. Good selection: The coffee shop should have a variety of coffee drinks, teas, and other beverages. This can include a variety of coffee beans, tea blends, and other drinks.\n\n10. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12147092819213867,
+        "warmup_time_sec": 0.18208622932434082,
+        "prefill_time_sec": 0.16178512573242188,
+        "decode_time_sec": 0.2275857925415039,
+        "total_wall_sec": 0.6929280757904053,
+        "generated_tokens": 20,
+        "tps": 83.4850004818954,
+        "output_text": "Andromeda was saved by the hero Hercules, who was a legendary figure in Greek mythology.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.12093997001647949,
+        "warmup_time_sec": 0.18772196769714355,
+        "prefill_time_sec": 0.16009187698364258,
+        "decode_time_sec": 1.6207520961761475,
+        "total_wall_sec": 2.089505910873413,
+        "generated_tokens": 130,
+        "tps": 79.59267817968625,
+        "output_text": "The Lumi\u00e8res are a fictional family in the popular children's book series \"Charlotte's Web\" by E.B. White. The story follows the adventures of two sisters, E.B. White's daughter, Charlotte, and her brother, Wilbur, as they live in a farmhouse with their mother, Fern, and their father, Eric. The Lumi\u00e8res are a family of farm animals, including pigs, cows, chickens, and other creatures, who live together in a cozy farmhouse. They are known for their love of reading and their friendship with Wilbur, a pig who becomes their unlikely friend.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 1.6388897895812988,
+        "warmup_time_sec": 0.5945608615875244,
+        "prefill_time_sec": 0.2073040008544922,
+        "decode_time_sec": 0.30570006370544434,
+        "total_wall_sec": 2.7464547157287598,
+        "generated_tokens": 25,
+        "tps": 78.50832515077613,
+        "output_text": "The wheel was invented in ancient Mesopotamia, specifically in the region of Sumer, around 3500 BC.",
+        "precision": "fp16"
+      }
+    ],
+    "MLX": [
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 2.0892951488494873,
+        "total_wall_sec": 3.0322210788726807,
+        "generated_tokens": 198,
+        "tps": 94.7688028228241,
+        "output_text": "Camels are able to survive for long without water because they have a unique adaptation that allows them to conserve water. They have a thick layer of fat called humps, which stores a large amount of fat. This fat is essential for camels, as it serves as a source of energy and helps to regulate their body temperature.\n\nAdditionally, camels have a unique digestive system that allows them to break down and extract nutrients from the limited water they consume. They have a specialized stomach that can ferment the water they consume, which helps to conserve water.\n\nCamels also have a thick layer of hair that helps to insulate them from the harsh desert environment, reducing the amount of water they lose through sweating. They also have a large, efficient heart that can pump blood efficiently, which helps to conserve water.\n\nOverall, camels' ability to survive for long without water is due to their unique combination of adaptations that allow them to conserve water and survive in the harsh desert environment.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.31398987770080566,
+        "total_wall_sec": 1.256915807723999,
+        "generated_tokens": 22,
+        "tps": 70.0659529571311,
+        "output_text": "Alice's parents have three daughters: Amy, Jessy, and what's the name of the third daughter?",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.4160318374633789,
+        "total_wall_sec": 1.3589577674865723,
+        "generated_tokens": 32,
+        "tps": 76.91719026868176,
+        "output_text": "The UN did not give the land in New York City to build their headquarters. The UN's headquarters are located in New York City, New York, USA.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.17275404930114746,
+        "total_wall_sec": 1.1156799793243408,
+        "generated_tokens": 7,
+        "tps": 40.520034281786906,
+        "output_text": "Mobile is bad for human health.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 1.2857470512390137,
+        "total_wall_sec": 2.228672981262207,
+        "generated_tokens": 122,
+        "tps": 94.88647077388539,
+        "output_text": "A polygon is a two-dimensional shape with straight sides. It is a closed shape that has a finite number of sides, and each side is a line segment. Polygons can be simple, meaning they have no holes or holes in them, or they can be complex, with holes or holes in them. Polygons can be regular, meaning all sides and angles are equal, or irregular, meaning they are not all equal. Polygons can be simple or complex, and they can be used to model real-world objects, like the shape of a roof or the shape of a car.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.7584183216094971,
+        "total_wall_sec": 1.7013442516326904,
+        "generated_tokens": 68,
+        "tps": 89.66028122275848,
+        "output_text": "As a Hugging Face assistant, I don't have access to personal data unless it's shared with me in the course of our conversation. However, I can tell you that Michelle MacLaren is a well-known actress in the television industry. She has directed several notable projects, including the HBO series \"Game of Thrones.\"",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 3.3121910095214844,
+        "total_wall_sec": 4.255116939544678,
+        "generated_tokens": 331,
+        "tps": 99.9338501458646,
+        "output_text": "As a Hugging Face AI assistant, I'm designed to provide helpful and informative responses. However, I can certainly provide some unique curtain tie backs that you can make yourself. Here are a few ideas:\n\n1. **Handmade Ribbon Tie Back**: This is a classic, but still very unique, tie back. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful, handmade look.\n\n2. **Handmade Ribbon Tie Back with a Twist**: This tie back is a bit more modern and interesting. You can twist the ribbon around the curtain to create a unique, decorative look.\n\n3. **Handmade Ribbon Tie Back with a Loop**: This tie back is another great option. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful, decorative look.\n\n4. **Handmade Ribbon Tie Back with a Loop and a Twist**: This tie back is a bit more complex, but it's still a unique and beautiful option. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful, decorative look.\n\n5. **Handmade Ribbon Tie Back with a Loop and a Twist and a Loop**: This tie back is even more complex, but it's still a unique and beautiful option. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful, decorative look.\n\nRemember, the key to a great tie back is to make it unique and personal. Don't be afraid to experiment and try out different designs and materials. Happy crafting!",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.36512088775634766,
+        "total_wall_sec": 1.308046817779541,
+        "generated_tokens": 27,
+        "tps": 73.94811117466836,
+        "output_text": "1. Nike Golf\n2. TaylorMade Golf\n3. TaylorMade Golf\n4. Nike Golf\n5. TaylorMade Golf",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.9074950218200684,
+        "total_wall_sec": 1.8504209518432617,
+        "generated_tokens": 78,
+        "tps": 85.9508847151178,
+        "output_text": "I'm sorry, but as a text-based model, I don't have the ability to access real-time data or current events. I can only provide information based on the knowledge I've been trained on. However, I can tell you that the most Olympic gold medals won by an individual are 11 by the United States, with 10 of those being gold medals.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.28516411781311035,
+        "total_wall_sec": 1.2280900478363037,
+        "generated_tokens": 19,
+        "tps": 66.6282986292551,
+        "output_text": "The Dutch artist who painted \"Girl with a Pearl Earring\" is Johannes Vermeer.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 1.0957129001617432,
+        "total_wall_sec": 2.0386388301849365,
+        "generated_tokens": 103,
+        "tps": 94.00272643024984,
+        "output_text": "When the sun goes down, the sky turns a deep shade of blue, and the stars begin to twinkle in the night sky. The air cools down, and the temperature drops, making it feel cooler and more comfortable. The world around us starts to slow down, and we can hear the sounds of the night, like the chirping of crickets or the distant hooting of owls. The darkness is a time of rest and relaxation, and we can finally unwind after a long day of work or school.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.6137080192565918,
+        "total_wall_sec": 1.5566339492797852,
+        "generated_tokens": 53,
+        "tps": 86.36028589654238,
+        "output_text": "A verb is a word that represents an action or a state of being. It is used to describe what something is doing or what someone or something is experiencing. For example, \"run,\" \"eat,\" \"jump,\" and \"smell\" are all verbs.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.31508469581604004,
+        "total_wall_sec": 1.2580106258392334,
+        "generated_tokens": 22,
+        "tps": 69.82249627523815,
+        "output_text": "The King of Holland in 1806 was William I of Nassau-Weelke.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.20724201202392578,
+        "total_wall_sec": 1.1501679420471191,
+        "generated_tokens": 11,
+        "tps": 53.07804094630227,
+        "output_text": "Billy the Kid was played by actor John Wayne.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.7737269401550293,
+        "total_wall_sec": 1.7166528701782227,
+        "generated_tokens": 68,
+        "tps": 87.88630261003325,
+        "output_text": "Syd Barrett left Pink Floyd in 1979 due to a disagreement with the band's management. He was unhappy with the direction of the band and felt that the band was losing its creative energy. Barrett was a key member of the band for over 20 years, and his departure was a significant blow to the band.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.7357292175292969,
+        "total_wall_sec": 1.6786551475524902,
+        "generated_tokens": 66,
+        "tps": 89.70691720200968,
+        "output_text": "Underwriting is the process of assessing the risk of a loan or credit application and determining whether it is suitable for the lender to extend credit to the borrower. It involves evaluating various factors such as the borrower's credit history, income, employment, and other financial information to determine the likelihood of the borrower repaying the loan on time.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 3.2444329261779785,
+        "total_wall_sec": 4.187358856201172,
+        "generated_tokens": 328,
+        "tps": 101.09624931787141,
+        "output_text": "1. Comfortable seating: The coffee shop should have comfortable seating areas where customers can relax and enjoy their coffee.\n\n2. Good atmosphere: The coffee shop should have a pleasant atmosphere that makes customers feel at home. This can be achieved by using natural light, comfortable music, and a welcoming decor.\n\n3. Good food: The coffee shop should have a variety of delicious and healthy food options to complement the coffee.\n\n4. Good customer service: The coffee shop should have friendly and helpful customer service staff who can assist customers with their orders and provide recommendations.\n\n5. Good selection of coffee: The coffee shop should have a variety of high-quality coffee beans and a wide range of coffee drinks to cater to different tastes and preferences.\n\n6. Good ambiance: The coffee shop should have a good ambiance that makes customers feel relaxed and at ease. This can be achieved by using soft lighting, comfortable music, and a welcoming decor.\n\n7. Good customer reviews: The coffee shop should have a good number of customer reviews to ensure that the customer service is good and the coffee is of high quality.\n\n8. Good customer feedback: The coffee shop should have a good number of customer feedback to ensure that the customer service is good and the coffee is of high quality.\n\n9. Good customer service: The coffee shop should have friendly and helpful customer service staff who can assist customers with their orders and provide recommendations.\n\n10. Good customer service: The coffee shop should have friendly and helpful customer service staff who can assist customers with their orders and provide recommendations.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.28076601028442383,
+        "total_wall_sec": 1.2236919403076172,
+        "generated_tokens": 19,
+        "tps": 67.67200908953498,
+        "output_text": "Andromeda was saved by the hero Hercules, who was a legendary figure in Greek mythology.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 105.8240659236908,
+        "total_wall_sec": 106.76699185371399,
+        "generated_tokens": 8192,
+        "tps": 77.41150303095716,
+        "output_text": "The Lumi\u00e8res are a French family of artists, known for their innovative and avant-garde approach to art. They are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have been creating art for over 150 years, and their work is characterized by their bold experimentation and exploration of new styles and techniques. They are known for their use of unconventional materials, such as found objects, and their innovative use of light and color.\n\nThe Lumi\u00e8res are a family of artists who have",
+        "precision": "fp16"
+      },
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.9429259300231934,
+        "decode_time_sec": 0.6570711135864258,
+        "total_wall_sec": 1.5999970436096191,
+        "generated_tokens": 24,
+        "tps": 36.525726825827405,
+        "output_text": "The wheel was invented in ancient Mesopotamia, specifically in the region of Sumer, around 3500 BC.",
+        "precision": "fp16"
+      }
+    ],
+    "PyTorch": [
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 4.949120998382568,
+        "total_wall_sec": 8.626353740692139,
+        "generated_tokens": 213,
+        "tps": 43.03794554014964,
+        "output_text": "Camels are able to survive for long periods without water because they have a unique adaptation that allows them to conserve water. They have a thick layer of fat called humps, which stores a significant amount of fat. This fat is essential for camels, as it serves as a source of energy and helps to regulate their body temperature.\n\nAdditionally, camels have a unique digestive system that allows them to break down and extract nutrients from the limited water they consume. They have a specialized stomach that can ferment the water they consume, which helps to conserve water.\n\nCamels also have a thick layer of hair that helps to insulate them from the harsh desert environment, reducing the amount of water they lose through sweating. They also have a well-developed sense of smell, which helps them to locate water sources and avoid areas with low water availability.\n\nOverall, camels' ability to survive for long periods without water is due to their unique combination of adaptations, including their fat reserves, digestive system, and ability to conserve water through their hair and skin.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.7230620384216309,
+        "total_wall_sec": 4.400294780731201,
+        "generated_tokens": 23,
+        "tps": 31.8091654351079,
+        "output_text": "Alice's parents have three daughters: Amy, Jessy, and what's the name of the third daughter?",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.8450958728790283,
+        "total_wall_sec": 4.522328615188599,
+        "generated_tokens": 33,
+        "tps": 39.048823996237644,
+        "output_text": "The UN did not give the land in New York City to build their headquarters. The UN's headquarters are located in New York City, New York, USA.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.2976658344268799,
+        "total_wall_sec": 3.97489857673645,
+        "generated_tokens": 8,
+        "tps": 26.875775029415276,
+        "output_text": "Mobile is bad for human health.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 2.7898459434509277,
+        "total_wall_sec": 6.467078685760498,
+        "generated_tokens": 124,
+        "tps": 44.44689868667693,
+        "output_text": "A polygon is a two-dimensional shape with straight sides. It is a closed shape that has a finite number of sides, and each side is a straight line segment. Polygons can be simple, meaning they have no holes or holes in them, or they can be complex, with holes or holes in them. Polygons can be regular, meaning all sides and angles are equal, or irregular, meaning they are not all equal. Polygons can be simple or complex, and they can be used to model real-world shapes, like the edges of a cube or the sides of a circle.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.6374337673187256,
+        "total_wall_sec": 5.314666509628296,
+        "generated_tokens": 69,
+        "tps": 42.139108999191166,
+        "output_text": "As a Hugging Face assistant, I don't have access to personal data unless it's shared with me in the course of our conversation. However, I can tell you that Michelle MacLaren is a well-known actress in the television industry. She has directed several notable projects, including the HBO series \"Game of Thrones.\"",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 8.73676609992981,
+        "total_wall_sec": 12.41399884223938,
+        "generated_tokens": 375,
+        "tps": 42.922060143399364,
+        "output_text": "As a Hugging Face AI assistant, I'm designed to provide helpful and informative responses. However, I can certainly provide some unique curtain tie backs that you can make yourself. Here are a few ideas:\n\n1. **Handmade Ribbon Tie Back**: This is a classic, but still very effective tie back. You can use a piece of ribbon to tie the curtain to the wall, creating a beautiful and unique design.\n\n2. **Handmade Ribbon Tie Back with a Twist**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n3. **Handmade Ribbon Tie Back with a Loop**: This tie back is a bit more modern, but still very effective. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n4. **Handmade Ribbon Tie Back with a Loop and a Twist**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\n5. **Handmade Ribbon Tie Back with a Loop and a Twist and a Loop**: This tie back is a bit more complex, but it's still a fun and creative way to tie a curtain. You can use a piece of ribbon to tie the curtain to the wall, then twist the ends together to create a beautiful knot.\n\nRemember, the key to a great tie back is to make it unique and personal. Don't be afraid to experiment and try out different designs and materials. Happy crafting!",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.7335789203643799,
+        "total_wall_sec": 4.41081166267395,
+        "generated_tokens": 28,
+        "tps": 38.16903569978806,
+        "output_text": "1. Nike Golf\n2. TaylorMade Golf\n3. TaylorMade Golf\n4. Nike Golf\n5. TaylorMade Golf",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.8276607990264893,
+        "total_wall_sec": 5.50489354133606,
+        "generated_tokens": 78,
+        "tps": 42.67750341942389,
+        "output_text": "I'm sorry, but as a text-based model, I don't have the ability to access real-time data or current events. I can provide general information about Olympic history, but I don't have the capability to provide specific information about individual athletes. I recommend checking the official Olympic website or a reliable sports news source for the most accurate and up-to-date information.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.5714201927185059,
+        "total_wall_sec": 4.248652935028076,
+        "generated_tokens": 20,
+        "tps": 35.00051320351649,
+        "output_text": "The Dutch artist who painted \"Girl with a Pearl Earring\" is Johannes Vermeer.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.6540508270263672,
+        "total_wall_sec": 5.3312835693359375,
+        "generated_tokens": 69,
+        "tps": 41.7157676611712,
+        "output_text": "When the sun goes down, the sky turns a deep shade of blue, and the stars begin to twinkle in the night sky. The air cools down, and the temperature drops, making it feel cooler and more comfortable. The darkness is a peaceful and serene time, and many people find it a great time to relax and unwind.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.2510650157928467,
+        "total_wall_sec": 4.928297758102417,
+        "generated_tokens": 54,
+        "tps": 43.16322438748571,
+        "output_text": "A verb is a word that represents an action or a state of being. It is used to describe what something is doing or what someone or something is experiencing. For example, \"run,\" \"eat,\" \"jump,\" and \"smell\" are all verbs.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.6335809230804443,
+        "total_wall_sec": 4.310813665390015,
+        "generated_tokens": 23,
+        "tps": 36.3015980471365,
+        "output_text": "The King of Holland in 1806 was William I of Nassau-Weelke.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.4578711986541748,
+        "total_wall_sec": 4.135103940963745,
+        "generated_tokens": 15,
+        "tps": 32.760304740917626,
+        "output_text": "Billy the Kid was portrayed by the talented actor, John Wayne.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.7805781364440918,
+        "total_wall_sec": 5.457810878753662,
+        "generated_tokens": 75,
+        "tps": 42.12115068972988,
+        "output_text": "Syd Barrett left Pink Floyd in 1980 due to a disagreement with the band's management. He was unhappy with the direction of the band and felt that the band was losing its creative energy. Barrett was a key member of the band from 1965 to 1980, and his departure was a significant blow to the band.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 1.523224115371704,
+        "total_wall_sec": 5.200456857681274,
+        "generated_tokens": 67,
+        "tps": 43.98564815503223,
+        "output_text": "Underwriting is the process of assessing the risk of a loan or credit application and determining whether it is suitable for the lender to extend credit to the borrower. It involves evaluating various factors such as the borrower's credit history, income, employment, and other financial information to determine the likelihood of the borrower repaying the loan on time.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 7.839597702026367,
+        "total_wall_sec": 11.516830444335938,
+        "generated_tokens": 341,
+        "tps": 43.497129949902764,
+        "output_text": "1. Comfortable seating: The coffee shop should have comfortable seating areas where customers can relax and socialize.\n\n2. Good atmosphere: The coffee shop should have a pleasant atmosphere that makes customers feel at home. This can be achieved by using natural light, comfortable lighting, and soothing music.\n\n3. Good food: The coffee shop should have a variety of delicious and healthy food options. This can include a variety of pastries, sandwiches, salads, and other items.\n\n4. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.\n\n5. Good selection: The coffee shop should have a variety of coffee drinks, teas, and other beverages. This can include a variety of coffee beans, tea blends, and other drinks.\n\n6. Good ambiance: The coffee shop should have a good ambiance. This can include a comfortable background music, a pleasant lighting, and a welcoming atmosphere.\n\n7. Good customer feedback: The coffee shop should have good customer feedback. This can include comments from customers about the quality of the coffee, the cleanliness of the shop, and the overall atmosphere.\n\n8. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.\n\n9. Good selection: The coffee shop should have a variety of coffee drinks, teas, and other beverages. This can include a variety of coffee beans, tea blends, and other drinks.\n\n10. Good customer service: The coffee shop should have good customer service. This can include friendly staff, good customer service, and a welcoming atmosphere.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.5593490600585938,
+        "total_wall_sec": 4.236581802368164,
+        "generated_tokens": 20,
+        "tps": 35.755848052922325,
+        "output_text": "Andromeda was saved by the hero Hercules, who was a legendary figure in Greek mythology.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 2.8947949409484863,
+        "total_wall_sec": 6.572027683258057,
+        "generated_tokens": 127,
+        "tps": 43.87184674241145,
+        "output_text": "The Lumi\u00e8res are a French family of artists, known for their innovative and avant-garde approach to art. They are a family of artists who have been creating art since 1960, and their work has been recognized by the prestigious Mus\u00e9e d'Orsay in Paris. The Lumi\u00e8res are a family of artists who have been known for their use of unconventional materials, such as found objects, and their emphasis on the emotional and psychological impact of their art. They have been associated with the avant-garde movement and have been recognized for their contributions to the development of modern and contemporary art.",
+        "precision": "fp16"
+      },
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 3.6772327423095703,
+        "decode_time_sec": 0.6658928394317627,
+        "total_wall_sec": 4.343125581741333,
+        "generated_tokens": 25,
+        "tps": 37.54357836515206,
+        "output_text": "The wheel was invented in ancient Mesopotamia, specifically in the region of Sumer, around 3500 BC.",
+        "precision": "fp16"
+      }
+    ],
+    "Ollama": [
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.082474833,
+        "decode_time_sec": 1.019732,
+        "total_wall_sec": 1.159872055053711,
+        "generated_tokens": 73,
+        "tps": 71.58743669905425,
+        "output_text": "Camels have adapted to their environment in several ways that allow them to survive for long periods without drinking water. They have large amounts of fat stored in their humps which serves as a source of energy during times when they don't drink water. Additionally, camels can go days without eating and still be able to maintain their body temperature and perform other essential functions.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.077975416,
+        "decode_time_sec": 0.165504,
+        "total_wall_sec": 0.2850191593170166,
+        "generated_tokens": 16,
+        "tps": 96.67440061871616,
+        "output_text": "Alice's parents have three daughters: Amy, Jessy, and Emily.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.079718625,
+        "decode_time_sec": 0.713381,
+        "total_wall_sec": 0.8368258476257324,
+        "generated_tokens": 57,
+        "tps": 79.90120286354697,
+        "output_text": "The United Nations (UN) did not give the land in New York City to build its headquarters. The UN's headquarters is located in New York City itself and was built on a site that had been previously occupied by the city's military, which was then transferred to the UN.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.079846958,
+        "decode_time_sec": 4.6104,
+        "total_wall_sec": 4.73531699180603,
+        "generated_tokens": 294,
+        "tps": 63.768870380010405,
+        "output_text": "Mobile devices have become an integral part of our daily lives. They provide us with access to information, communication tools, and entertainment options that we can't imagine living without. However, there are some concerns about the impact of mobile technology on human health. \n\nOne concern is the potential for exposure to electromagnetic fields (EMFs) from cell phones and other devices. These fields have been linked to various health issues such as cancer, neurological disorders, and sleep disturbances. Additionally, excessive use of mobile devices has been associated with increased risk of obesity, diabetes, and cardiovascular disease due to prolonged periods of screen time.\n\nAnother concern is the potential for exposure to toxic chemicals used in the production of smartphones and other mobile devices. These chemicals can be hazardous if ingested or inhaled over long periods of time. Furthermore, the use of mobile devices has been linked to decreased attention span and increased symptoms of attention deficit hyperactivity disorder (ADHD).\n\nLastly, there are concerns about the potential for social isolation caused by excessive screen time on mobile devices. Spending too much time staring at screens can lead to a decrease in face-to-face interaction and reduced opportunities for socialization, which is essential for mental health and well-being.\n\nIn conclusion, while mobile technology has many benefits, it's crucial to be aware of the potential risks associated with its use. It's important to balance our screen time with other activities that promote physical activity, social connection, and mental stimulation.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.085263125,
+        "decode_time_sec": 1.281429,
+        "total_wall_sec": 1.4041411876678467,
+        "generated_tokens": 93,
+        "tps": 72.57522656346939,
+        "output_text": "A polygon is a two-dimensional shape with straight sides. It can be any number of sides long and has no corners or points where the edges meet. Polygons are often used to describe shapes in geometry, such as triangles, quadrilaterals (rectangles), pentagons (five-sided polygons), and so on. They can also be classified based on their angles, like equilateral, isosceles, and scalene polygons.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.080778625,
+        "decode_time_sec": 1.146079,
+        "total_wall_sec": 1.2720279693603516,
+        "generated_tokens": 84,
+        "tps": 73.29337680910304,
+        "output_text": "As an AI, I don't have access to personal data unless it has been shared with me in the course of our conversation. However, based on your request, I can tell you that Michelle MacLaren directed several episodes of season four of Game of Thrones. Please note that this information is not specific to any particular episode or character, but rather a general statement about her work as an actress and director.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.084569875,
+        "decode_time_sec": 5.810296,
+        "total_wall_sec": 5.939900875091553,
+        "generated_tokens": 362,
+        "tps": 62.30319419182775,
+        "output_text": "As an AI assistant specializing in home decor and furnishing, I'm happy to help with your question. Here are some unique curtain tie-backs ideas:\n\n1. **Handmade Ribbon Tie Back**: This is a classic but elegant option. You can use a piece of ribbon that matches the color or fabric of your curtains. Cut it into strips and attach them to the back of the curtains using a strong adhesive, leaving enough space for the curtain's opening.\n\n2. **Crafted Ribbon Tie Back**: Similar to the previous one, but with more intricate designs. You can use different types of ribbon, like lace or tulle, to create unique patterns and shapes. \n\n3. **Handmade Ribbon Tie Back with a Twist**: This tie back is made by twisting two pieces of ribbon together at an angle. It adds a touch of whimsy and creates a visually interesting design.\n\n4. **Crafted Ribbon Tie Back with a Loop**: Similar to the previous one, but this time you'll be using a loop instead of a twist. This tie back is great for adding some extra flair to your curtains.\n\n5. **Handmade Ribbon Tie Back with a Square Shape**: If you want something more traditional, you can use a square piece of ribbon and attach it to the back of your curtains in a straight line or at an angle.\n\n6. **Crafted Ribbon Tie Back with a Loop and a Twist**: This tie back is similar to the previous one but uses two loops instead of a twist. It's great for adding some extra texture to your curtains.\n\nRemember, the key to creating a unique curtain tie-back is to choose something that you're comfortable working with and has a personal touch. Happy crafting!",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.0824305,
+        "decode_time_sec": 0.334532,
+        "total_wall_sec": 0.45946383476257324,
+        "generated_tokens": 30,
+        "tps": 89.6775196393768,
+        "output_text": "1. Nike Golf\n2. TaylorMade Golf\n3. Ping Golf\n4. Ryder Cup Golf\n5. Mavericks Golf",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.085371584,
+        "decode_time_sec": 1.030592,
+        "total_wall_sec": 1.153040885925293,
+        "generated_tokens": 77,
+        "tps": 74.71433894305409,
+        "output_text": "I'm sorry for any confusion, but as an AI developed by Hugging Face, I don't have access to real-time data or information about specific athletes' achievements. My knowledge is based on pre-trained models and datasets that were trained on a vast amount of text data. Therefore, it's impossible for me to provide you with the most recent Olympic gold medal winners.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.080720416,
+        "decode_time_sec": 0.206864,
+        "total_wall_sec": 0.32201075553894043,
+        "generated_tokens": 20,
+        "tps": 96.68187794879728,
+        "output_text": "The Dutch artist who painted \"Girl with a Pearl Earring\" is Johannes Vermeer.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.08337275,
+        "decode_time_sec": 0.849625,
+        "total_wall_sec": 0.9760220050811768,
+        "generated_tokens": 65,
+        "tps": 76.50434015006621,
+        "output_text": "When the sun goes down, it's time for nighttime. The sky turns dark and stars appear in the night sky. People often go to bed early because they can't see as much light from their homes or streetlights. They might also use special devices called \"night-vision goggles\" to see better at night.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.082242125,
+        "decode_time_sec": 1.141681,
+        "total_wall_sec": 1.262450933456421,
+        "generated_tokens": 83,
+        "tps": 72.69981719937532,
+        "output_text": "A verb is a word that represents an action or state of being. It's the part of speech that describes what something does or is like. For example, \"run,\" \"eat,\" and \"jump\" are all verbs because they describe actions. They can be used to form sentences and express various states of being, such as \"I am running,\" \"He eats breakfast,\" and \"She jumps high.\"",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.082229125,
+        "decode_time_sec": 0.776859,
+        "total_wall_sec": 0.8996291160583496,
+        "generated_tokens": 62,
+        "tps": 79.80856242896073,
+        "output_text": "The King of Holland was William I of Nassau-Siegen. He was the son of Prince William of Orange and Princess Elisabeth of Saxe-Gotha-L\u00fcneburg, who had been exiled by Napoleon Bonaparte after the Battle of Waterloo in 1815.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.084052334,
+        "decode_time_sec": 0.111905,
+        "total_wall_sec": 0.23223328590393066,
+        "generated_tokens": 12,
+        "tps": 107.23381439613958,
+        "output_text": "Billy the Kid was portrayed by actor John Wayne.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.078422917,
+        "decode_time_sec": 2.985039,
+        "total_wall_sec": 3.100911855697632,
+        "generated_tokens": 194,
+        "tps": 64.99077566490756,
+        "output_text": "Syd Barrett was an influential member of the band Pink Floyd. He joined the band in 1965 and remained with them until his death on June 28, 1980. The reasons for his departure are not well-documented, but it is believed that he felt stifled by the group's rigid structure and the pressure to conform to certain artistic visions.\n\nIn an interview with Rolling Stone in 1975, Barrett stated that he wanted more freedom to create music without being influenced by others' ideas. He also mentioned that he was unhappy with the band's direction at the time, which led to his departure from Pink Floyd.\n\nIt is worth noting that Syd Barrett had a significant impact on the development of Pink Floyd's sound and style during his tenure as a member of the band. His contributions include writing songs such as \"Money\" and \"The Wall,\" which helped shape the band's unique sound.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.082288333,
+        "decode_time_sec": 0.740292,
+        "total_wall_sec": 0.8595831394195557,
+        "generated_tokens": 60,
+        "tps": 81.04909954450406,
+        "output_text": "Underwriting is the process of assessing and evaluating an insurance policy to determine whether it's suitable for the individual or business that purchased it. It involves analyzing various factors such as health status, financial situation, lifestyle, and other relevant details to decide if the policy will be profitable for the insurer.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.080243041,
+        "decode_time_sec": 4.040587,
+        "total_wall_sec": 4.168745040893555,
+        "generated_tokens": 259,
+        "tps": 64.09959740998028,
+        "output_text": "1. Comfortable seating: The coffee shop should have comfortable seating areas where customers can relax and socialize while they enjoy their drinks.\n\n2. Good atmosphere: A good coffee shop should have an inviting atmosphere that makes customers feel at home, whether it's a cozy corner or a bustling main area with plenty of natural light.\n\n3. Quality food and beverages: The menu should offer a variety of delicious and healthy options to cater to different tastes and dietary needs. \n\n4. Good customer service: Friendly staff who can assist customers with their orders and provide excellent customer service will make the experience more enjoyable for everyone.\n\n5. Cleanliness: A good coffee shop should have clean, well-maintained areas where customers can relax and enjoy their drinks without worrying about germs or dirty surfaces.\n\n6. Variety of products: Offering a variety of coffee beans, teas, pastries, and other specialty items will keep the menu fresh and exciting for regulars.\n\n7. Good customer reviews: A good coffee shop should have a high number of positive reviews from customers to show that it's a great place to visit.\n\nRemember, these are just some general characteristics of a good coffee shop. The best one is unique to your local area and will reflect the character of your community.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.064686167,
+        "decode_time_sec": 0.2128,
+        "total_wall_sec": 0.3179512023925781,
+        "generated_tokens": 20,
+        "tps": 93.98496240601504,
+        "output_text": "Andromeda was saved by her mother, who is a skilled and powerful sorceress.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.084245,
+        "decode_time_sec": 1.168972,
+        "total_wall_sec": 1.2960400581359863,
+        "generated_tokens": 85,
+        "tps": 72.71346105809208,
+        "output_text": "The Lumi\u00e8res is a French comedy group that originated in 1985. They were formed by three friends: Jean-Luc, Pierre, and Jacques. The group gained popularity through their witty humor, catchy songs, and live performances at various venues around Paris. Their unique blend of pop culture references, satire, and social commentary has made them a beloved fixture on the French stage for over two decades.",
+        "precision": "4-bit (GGUF)"
+      },
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.080441417,
+        "decode_time_sec": 0.708206,
+        "total_wall_sec": 0.8265571594238281,
+        "generated_tokens": 59,
+        "tps": 83.30909368178186,
+        "output_text": "The invention of the wheel is attributed to ancient Mesopotamia around 3500 BC. However, it's worth noting that there were several early prototypes and modifications before this time period. The earliest known evidence of a spinning wheel dates back to around 2800 BC in Mesopotamia.",
+        "precision": "4-bit (GGUF)"
+      }
+    ]
+  },
+  "Qwen/Qwen2.5-1.5B-Instruct": {
+    "VelocityAI": [],
+    "MLX": [],
+    "PyTorch": [],
+    "Ollama": []
+  }
+}

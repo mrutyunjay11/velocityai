@@ -46,7 +46,7 @@ class RMSNorm(Module):
         return vai.Tensor._wrap(rms_norm(x._c, self.weight._c, self.eps))
 
 class CausalSelfAttention(Module):
-    def __init__(self, dim: int, num_heads: int, num_kv_heads: int = None, head_dim: int = None, rope_theta: float = 100000.0, max_seq_len: int = 4096, init_weights: bool = True):
+    def __init__(self, dim: int, num_heads: int, num_kv_heads: int = None, head_dim: int = None, rope_theta: float = 100000.0, max_seq_len: int = 4096, attention_bias: bool = False, init_weights: bool = True):
         super().__init__()
         self.dim = dim
         self.num_heads = num_heads
@@ -55,9 +55,9 @@ class CausalSelfAttention(Module):
         self.num_kv_groups = self.num_heads // self.num_kv_heads
         
         # Projections
-        self.q_proj = Linear(dim, self.num_heads * self.head_dim, bias=False, init_weights=init_weights)
-        self.k_proj = Linear(dim, self.num_kv_heads * self.head_dim, bias=False, init_weights=init_weights)
-        self.v_proj = Linear(dim, self.num_kv_heads * self.head_dim, bias=False, init_weights=init_weights)
+        self.q_proj = Linear(dim, self.num_heads * self.head_dim, bias=attention_bias, init_weights=init_weights)
+        self.k_proj = Linear(dim, self.num_kv_heads * self.head_dim, bias=attention_bias, init_weights=init_weights)
+        self.v_proj = Linear(dim, self.num_kv_heads * self.head_dim, bias=attention_bias, init_weights=init_weights)
         self.o_proj = Linear(self.num_heads * self.head_dim, dim, bias=False, init_weights=init_weights)
         self.qkv_proj = None
         
@@ -166,7 +166,7 @@ class SwiGLUMLP(Module):
         return self.down_proj(hidden)
 
 class TransformerBlock(Module):
-    def __init__(self, dim: int, num_heads: int, num_kv_heads: int, head_dim: int, intermediate_size: int, rms_norm_eps: float = 1e-5, rope_theta: float = 100000.0, init_weights: bool = True):
+    def __init__(self, dim: int, num_heads: int, num_kv_heads: int, head_dim: int, intermediate_size: int, rms_norm_eps: float = 1e-5, rope_theta: float = 100000.0, attention_bias: bool = False, init_weights: bool = True):
         super().__init__()
         self.self_attn = CausalSelfAttention(
             dim=dim,
@@ -174,6 +174,7 @@ class TransformerBlock(Module):
             num_kv_heads=num_kv_heads,
             head_dim=head_dim,
             rope_theta=rope_theta,
+            attention_bias=attention_bias,
             init_weights=init_weights
         )
         self.mlp = SwiGLUMLP(dim=dim, intermediate_size=intermediate_size, init_weights=init_weights)
@@ -202,11 +203,12 @@ class LlamaModel(Module):
         self.num_layers = cfg.get("num_hidden_layers", cfg.get("num_layers", 32))
         self.num_heads = cfg.get("num_attention_heads", cfg.get("num_heads", 15))
         self.num_kv_heads = cfg.get("num_key_value_heads", cfg.get("num_kv_heads", 5))
-        self.head_dim = cfg.get("head_dim", 64)
+        self.head_dim = cfg.get("head_dim", self.dim // self.num_heads)
         self.intermediate_size = cfg.get("intermediate_size", 2560)
         self.rms_norm_eps = cfg.get("rms_norm_eps", 1e-5)
         self.rope_theta = cfg.get("rope_theta", 100000.0)
         self.tie_word_embeddings = cfg.get("tie_word_embeddings", True)
+        self.attention_bias = cfg.get("attention_bias", False)
         
         init_weights = cfg.get("init_weights", kwargs.get("init_weights", True))
         self.embed_tokens = Embedding(self.vocab_size, self.dim, init_weights=init_weights)
@@ -221,6 +223,7 @@ class LlamaModel(Module):
                 intermediate_size=self.intermediate_size,
                 rms_norm_eps=self.rms_norm_eps,
                 rope_theta=self.rope_theta,
+                attention_bias=self.attention_bias,
                 init_weights=init_weights
             )
             self.layers.append(block)

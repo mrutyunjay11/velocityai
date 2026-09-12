@@ -82,8 +82,9 @@ void kernel_attention_decode_f32(
     int64_t kv_groups = num_heads / num_kv_heads;
     float scale = 1.0f / std::sqrt(static_cast<float>(head_dim));
     
-    // Static buffer for attention scores to avoid heap allocation
-    float scores[4096];
+    // Dynamically allocate attention scores to avoid stack overflow for long sequences (>4096)
+    std::unique_ptr<float[]> scores_buf(new float[total_tokens]);
+    float* scores = scores_buf.get();
     
     // 4. Compute attention for each head
     for (int64_t h = 0; h < num_heads; ++h) {

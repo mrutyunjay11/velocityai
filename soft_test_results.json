@@ -1,0 +1,106 @@
+{
+  "HuggingFaceTB/SmolLM2-360M-Instruct": {
+    "VelocityAI": [
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 0.882300853729248,
+        "warmup_time_sec": 0.1839892864227295,
+        "prefill_time_sec": 0.23548007011413574,
+        "decode_time_sec": 1.4660258293151855,
+        "total_wall_sec": 2.767796039581299,
+        "generated_tokens": 107,
+        "tps": 72.30431952860957,
+        "output_text": "Hibernating bears, like the brown bear, do not need to eat, drink, or urinate for months because their bodies go into a state of dormancy, also known as torpor, which allows them to conserve energy and survive harsh winter conditions. During hibernation, their heart rate slows down to around 80-90 beats per minute, and their body temperature drops to around 30-35 degrees Fahrenheit. This prolonged state of dormancy enables them to survive for months without food, water, and urination.",
+        "precision": "fp16"
+      }
+    ],
+    "MLX": [
+      {
+        "framework": "MLX",
+        "load_time_sec": 0.8689038753509521,
+        "decode_time_sec": 0.9877429008483887,
+        "total_wall_sec": 1.8566467761993408,
+        "generated_tokens": 86,
+        "tps": 87.0671911953335,
+        "output_text": "Hibernating bears, like the brown bear, do not need to eat, drink, or urinate for months because their bodies go into a state of dormancy, also known as torpor, which allows them to conserve energy. During hibernation, their heart rate slows down, and their body temperature drops, reducing metabolic activity. This prolonged state of dormancy enables the bear to survive harsh winter conditions without food, water, and urination.",
+        "precision": "fp16"
+      }
+    ],
+    "PyTorch": [
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 2.4911282062530518,
+        "decode_time_sec": 2.5603530406951904,
+        "total_wall_sec": 5.051481246948242,
+        "generated_tokens": 107,
+        "tps": 41.79111173314881,
+        "output_text": "Hibernating bears, like the brown bear, do not need to eat, drink, or urinate for months because their bodies go into a state of dormancy, also known as torpor, which allows them to conserve energy and survive harsh winter conditions. During hibernation, their heart rate slows down to around 80-90 beats per minute, and their body temperature drops to around 30-35 degrees Fahrenheit. This prolonged state of dormancy enables them to survive for months without food, water, and urination.",
+        "precision": "fp16"
+      }
+    ],
+    "Ollama": [
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.083843042,
+        "decode_time_sec": 1.330003,
+        "total_wall_sec": 1.4517822265625,
+        "generated_tokens": 92,
+        "tps": 69.17277630200834,
+        "output_text": "Hibernation in bears is an adaptation that allows them to conserve energy during periods of low food availability by reducing metabolic activity and body functions. This process involves lowering their heart rate, breathing rate, and body temperature, which can last for several months or even years depending on the species and environmental conditions. By doing so, bears can survive without consuming food, drinking water, or eliminating waste products, thereby conserving energy and resources necessary to maintain bodily functions.",
+        "precision": "4-bit (GGUF)"
+      }
+    ]
+  },
+  "Qwen/Qwen2.5-1.5B-Instruct": {
+    "VelocityAI": [
+      {
+        "framework": "VelocityAI",
+        "load_time_sec": 5.847839117050171,
+        "warmup_time_sec": 0.49469470977783203,
+        "prefill_time_sec": 0.6953961849212646,
+        "decode_time_sec": 5.385728120803833,
+        "total_wall_sec": 12.4236581325531,
+        "generated_tokens": 110,
+        "tps": 20.23867480034092,
+        "output_text": "Hibernating bears do not need to eat, drink, or urinate for months because they enter a state of suspended animation during hibernation. During this time, their metabolic rate slows significantly, allowing them to conserve energy. Their body temperature drops, and their heart rate and breathing slow down dramatically. This state of dormancy allows bears to survive on stored fat reserves, which they accumulate through feeding during the warmer months. The reduced metabolic activity and decreased water needs mean they can go without food, water, and urination for extended periods.",
+        "precision": "fp16"
+      }
+    ],
+    "MLX": [
+      {
+        "framework": "MLX",
+        "load_time_sec": 2.585754156112671,
+        "decode_time_sec": 4.572092771530151,
+        "total_wall_sec": 7.157846927642822,
+        "generated_tokens": 101,
+        "tps": 22.090540382057497,
+        "output_text": "Hibernating bears do not need to eat, drink, or urinate for months because they enter a state of torpor, a deep state of inactivity and reduced metabolism. During hibernation, their body temperature, heart rate, and breathing slow down significantly, conserving energy. They also produce less urine and urinate less frequently, further reducing water loss. This state allows bears to survive for extended periods without food, water, or urination, conserving energy for the next feeding season.",
+        "precision": "fp16"
+      }
+    ],
+    "PyTorch": [
+      {
+        "framework": "PyTorch",
+        "load_time_sec": 5.223191738128662,
+        "decode_time_sec": 7.171176910400391,
+        "total_wall_sec": 12.394368648529053,
+        "generated_tokens": 98,
+        "tps": 13.665818208705764,
+        "output_text": "Hibernating bears do not require food, water, or urination because they enter a state of suspended animation during winter hibernation. During this time, their metabolic rate drops significantly, allowing them to conserve energy and survive on stored fat reserves without needing external inputs. This adaptation helps them avoid predators and maintain body temperature in cold environments. Once spring arrives and conditions become favorable, they emerge from hibernation, rehydrating and restoring their bodily functions before resuming normal activities.",
+        "precision": "fp16"
+      }
+    ],
+    "Ollama": [
+      {
+        "framework": "Ollama",
+        "load_time_sec": 0.16796725,
+        "decode_time_sec": 1.58351,
+        "total_wall_sec": 1.8087098598480225,
+        "generated_tokens": 101,
+        "tps": 63.78235691596517,
+        "output_text": "Hibernating bears do not require food, water, or urination because they enter a state of suspended animation during winter hibernation. Their metabolic rate slows down significantly, allowing them to survive on stored fat reserves for months without needing external sustenance. This process also minimizes their need for water as the body's functions are reduced, and urine production is greatly decreased. The bears' kidneys conserve water by concentrating it in small amounts that can be excreted more efficiently during hibernation.",
+        "precision": "4-bit (GGUF)"
+      }
+    ]
+  }
+}

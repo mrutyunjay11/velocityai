@@ -30,7 +30,8 @@ class Linear(Module):
         out = vai.Tensor._wrap(linear(x._c, self.weight._c))
             
         if self.bias is not None:
-            out = out + self.bias
+            out_np = out.numpy() + self.bias.numpy()
+            out = vai.tensor(out_np)
         return out
 
 class BroadcastBias(ag.Function):
