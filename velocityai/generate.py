@@ -269,7 +269,7 @@ def generate(
             logits_tensor = vai.Tensor._wrap(logits_tensor_raw)
             logits_np = logits_tensor.numpy()
             last_logits = logits_np[0, :] if logits_np.ndim == 2 else logits_np[:]
-            next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+            next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
         else:
             next_token = fast_decoder.prefill(current_tokens)
     else:
@@ -278,7 +278,7 @@ def generate(
         logits = model(tokens_tensor, start_pos=0, last_token_only=True, kv_cache=kv_cache)
         logits_np = logits.numpy()
         last_logits = logits_np[0, -1, :] if logits_np.ndim == 3 else logits_np[-1, :]
-        next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+        next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
         
     ttft = time.time() - gen_start_time
     generated_tokens.append(next_token)
@@ -337,13 +337,13 @@ def generate(
                                 else:
                                     logits_c = fast_decoder.decode_step_logits(ct, start_pos)
                                     last_logits = vai.Tensor._wrap(logits_c).numpy()[0]
-                                    next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+                                    next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
                             else:
                                 tokens_tensor = vai.tensor(np.array([[ct]], dtype=np.int64)).to(device)
                                 logits = model(tokens_tensor, start_pos=start_pos, last_token_only=True, kv_cache=kv_cache)
                                 logits_np = logits.numpy()
                                 last_logits = logits_np[0, -1, :] if logits_np.ndim == 3 else logits_np[-1, :]
-                                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+                                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
                             start_pos += 1
                         continue
 
@@ -359,13 +359,13 @@ def generate(
             elif fast_decoder is not None:
                 logits_c = fast_decoder.decode_step_logits(next_token, start_pos)
                 last_logits = vai.Tensor._wrap(logits_c).numpy()[0]
-                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
             else:
                 tokens_tensor = vai.tensor(np.array([[next_token]], dtype=np.int64)).to(device)
                 logits = model(tokens_tensor, start_pos=start_pos, last_token_only=True, kv_cache=kv_cache)
                 logits_np = logits.numpy()
                 last_logits = logits_np[0, -1, :] if logits_np.ndim == 3 else logits_np[-1, :]
-                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+                next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, generated_tokens)
                 
             generated_tokens.append(next_token)
             current_tokens.append(next_token)
