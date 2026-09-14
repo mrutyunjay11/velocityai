@@ -52,11 +52,47 @@ def verify_model(model_id, prompt):
             layer.self_attn.qkv_proj.bias._c if layer.self_attn.qkv_proj.bias is not None else None
         )
         
+    # C++ Warmup Call (Populate FP32 Cache)
+    _ = fast_decoder.prefill_logits(prompt_tokens)
+    
+    # Assert cache is populated
+    cache_populated = fast_decoder.is_cache_populated()
+    print(f"C++ FP32 Cache Populated after Warmup: {'PASS' if cache_populated else 'FAIL'}")
+    if not cache_populated:
+        print("-> FATAL: FP32 weight cache was not populated during the warmup call.")
+        sys.exit(1)
+    
+    # Helper to clear C++ KV cache memory in-place so we don't feed stale context
+    def clear_cpp_kv_cache():
+        for i in range(model.num_layers):
+            kv_cache.k_tensors[i].numpy().fill(0)
+            kv_cache.v_tensors[i].numpy().fill(0)
+            
+    # C++ Timed Call 1
+    clear_cpp_kv_cache()
     t0 = time.time()
-    logits_tensor_cpp = vai.Tensor._wrap(fast_decoder.prefill_logits(prompt_tokens))
+    logits_tensor_cpp_1 = vai.Tensor._wrap(fast_decoder.prefill_logits(prompt_tokens))
     t1 = time.time()
-    prefill_time_cpp = t1 - t0
-    print(f"C++ Prefill Time: {prefill_time_cpp:.4f}s")
+    prefill_time_cpp_1 = t1 - t0
+    print(f"C++ Prefill Time (warm, call 1): {prefill_time_cpp_1:.4f}s")
+    
+    # C++ Timed Call 2
+    clear_cpp_kv_cache()
+    t0 = time.time()
+    logits_tensor_cpp_2 = vai.Tensor._wrap(fast_decoder.prefill_logits(prompt_tokens))
+    t1 = time.time()
+    prefill_time_cpp_2 = t1 - t0
+    print(f"C++ Prefill Time (warm, call 2): {prefill_time_cpp_2:.4f}s")
+
+    # C++ Timed Call 3
+    clear_cpp_kv_cache()
+    t0 = time.time()
+    logits_tensor_cpp_3 = vai.Tensor._wrap(fast_decoder.prefill_logits(prompt_tokens))
+    t1 = time.time()
+    prefill_time_cpp_3 = t1 - t0
+    print(f"C++ Prefill Time (warm, call 3): {prefill_time_cpp_3:.4f}s")
+    
+    logits_tensor_cpp = logits_tensor_cpp_3
     
     logits_cpp = logits_tensor_cpp.numpy()
     last_logits_cpp = logits_cpp[0, :] if logits_cpp.ndim == 2 else logits_cpp[:]

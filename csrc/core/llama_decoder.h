@@ -112,8 +112,18 @@ public:
         sparse_mode_ = enabled;
         sparse_threshold_ = threshold;
     }
+    
     bool get_sparse_mode() const { return sparse_mode_; }
     float get_sparse_threshold() const { return sparse_threshold_; }
+
+    bool is_cache_populated() const {
+        if (layers_.empty()) return false;
+        const auto& layer = layers_[0];
+        return layer.qkv_weight_f32 != nullptr && 
+               layer.o_weight_f32 != nullptr && 
+               layer.gate_up_weight_f32 != nullptr && 
+               layer.down_weight_f32 != nullptr;
+    }
 
 private:
     void run_parallel_task(DecoderTaskType task, const void* weight, float* out, int64_t K, int64_t N);

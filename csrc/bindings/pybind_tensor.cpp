@@ -357,7 +357,8 @@ void init_tensor_bindings(py::module_& m) {
         .def("prefill_logits", &FastLlamaDecoder::prefill_logits, py::arg("prompt_tokens"))
         .def("set_sparse_mode", &FastLlamaDecoder::set_sparse_mode, py::arg("enabled"), py::arg("threshold") = -3.5f)
         .def_property_readonly("sparse_mode", &FastLlamaDecoder::get_sparse_mode)
-        .def_property_readonly("sparse_threshold", &FastLlamaDecoder::get_sparse_threshold);
+        .def_property_readonly("sparse_threshold", &FastLlamaDecoder::get_sparse_threshold)
+        .def("is_cache_populated", &FastLlamaDecoder::is_cache_populated);
 }
 
 void init_memory_bindings(py::module_& m) {
