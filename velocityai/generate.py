@@ -265,7 +265,8 @@ def generate(
     
     if fast_decoder is not None:
         if needs_sampling:
-            logits_tensor = fast_decoder.prefill_logits(current_tokens)
+            logits_tensor_raw = fast_decoder.prefill_logits(current_tokens)
+            logits_tensor = vai.Tensor._wrap(logits_tensor_raw)
             logits_np = logits_tensor.numpy()
             last_logits = logits_np[0, :] if logits_np.ndim == 2 else logits_np[:]
             next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
