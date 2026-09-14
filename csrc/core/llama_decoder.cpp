@@ -108,10 +108,16 @@ FastLlamaDecoder::FastLlamaDecoder(
 }
 
 FastLlamaDecoder::~FastLlamaDecoder() {
-    curr_task_.store(TASK_STOP, std::memory_order_relaxed);
+    curr_task_.store(TASK_STOP, std::memory_order_release);
     barrier_start_.wait(0);
-    for (pthread_t th : worker_handles_) {
-        pthread_join(th, nullptr);
+    for (pthread_t handle : worker_handles_) {
+        pthread_join(handle, nullptr);
+    }
+    for (auto& layer : layers_) {
+        delete[] layer.qkv_weight_f32;
+        delete[] layer.o_weight_f32;
+        delete[] layer.gate_up_weight_f32;
+        delete[] layer.down_weight_f32;
     }
 }
 
@@ -657,6 +663,7 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
     std::vector<float> swiglu_batch(N * intermediate_size_);
     std::vector<float> down_batch(N * dim_);
 
+    auto start_layer_loop = std::chrono::high_resolution_clock::now();
     for (int64_t l = 0; l < num_layers_; ++l) {
         const auto& layer = layers_[l];
 
@@ -666,7 +673,7 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
         }
 
         // QKV GEMM: QKV_batch = norm_batch @ qkv_weight^T
-        kernel_gemm_fp16(norm_batch.data(), layer.qkv_weight, qkv_batch.data(), N, dim_, qkv_dim);
+        kernel_gemm_fp16(norm_batch.data(), layer.qkv_weight, qkv_batch.data(), N, dim_, qkv_dim, &layer.qkv_weight_f32);
 
         // Add QKV bias if present
         if (layer.qkv_bias) {
@@ -695,7 +702,7 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
         );
 
         // O GEMM: O_batch = attn_out_batch @ o_weight^T
-        kernel_gemm_fp16(attn_out_batch.data(), layer.o_weight, down_batch.data(), N, num_heads_ * head_dim_, dim_);
+        kernel_gemm_fp16(attn_out_batch.data(), layer.o_weight, down_batch.data(), N, num_heads_ * head_dim_, dim_, &layer.o_weight_f32);
 
         // Residual 1 & RMSNorm 2
         for (int64_t pos = 0; pos < N; ++pos) {
@@ -713,7 +720,7 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
         }
 
         // Gate-Up GEMM: gate_up_batch = norm2_batch @ gate_up_weight^T
-        kernel_gemm_fp16(norm2_batch.data(), layer.gate_up_weight, gate_up_batch.data(), N, dim_, intermediate_size_ * 2);
+        kernel_gemm_fp16(norm2_batch.data(), layer.gate_up_weight, gate_up_batch.data(), N, dim_, intermediate_size_ * 2, &layer.gate_up_weight_f32);
 
         // Batched SwiGLU
         for (int64_t pos = 0; pos < N; ++pos) {
@@ -723,7 +730,7 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
         }
 
         // Down GEMM: down_batch = swiglu_batch @ down_weight^T
-        kernel_gemm_fp16(swiglu_batch.data(), layer.down_weight, down_batch.data(), N, intermediate_size_, dim_);
+        kernel_gemm_fp16(swiglu_batch.data(), layer.down_weight, down_batch.data(), N, intermediate_size_, dim_, &layer.down_weight_f32);
 
         // Residual 2
         for (int64_t pos = 0; pos < N; ++pos) {
@@ -739,6 +746,8 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
 #endif
         }
     }
+    auto end_layer_loop = std::chrono::high_resolution_clock::now();
+    printf("[LOOP TOTAL] %.5f\n", std::chrono::duration<double>(end_layer_loop - start_layer_loop).count());
 
     // 3. Final token (N-1): compute final RMSNorm + LM Head to produce first generated token
     float* h_last = h_batch.data() + (N - 1) * dim_;

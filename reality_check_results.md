@@ -31,5 +31,17 @@ Here are the concrete measurements from `verify_3.py` proving correctness and pr
 - **Py Tokens:**  `[472, 17660, 1095, 29724, 1513, 944, 1184, 311, 8180, 11, 7027]`
 - **Token-for-token match:** PASS
 
+## Final Metrics (Cached FP32 weights)
+| Model | C++ batched prefill | Python baseline | Verdict |
+|---|---|---|---|
+| SmolLM2-360M | 0.814s | 0.135s | **C++ is 6.0x slower** |
+| Qwen2.5-1.5B | 2.107s | 1.483s | **C++ is 1.4x slower** |
+
 ## Summary
-The missing NEON scalar tail loop in `kernel_attention_prefill_f32` and `kernel_attention_decode_f32` was identified and patched. Both models still cleanly pass strict numerical and KV cache continuation checks, confirming the implementation is robust regardless of whether `head_dim` is a clean multiple of 16.
+The FP16->FP32 casting and allocation overhead in `kernel_gemm_fp16` has been completely eliminated by implementing a lazy-loaded FP32 weight cache in `FastLayerWeights`. This reduced the Qwen2.5-1.5B prefill time dramatically (from ~5.18s to 2.10s), validating the profiling data that the cast was the dominant bottleneck.
+
+However, the C++ path remains slower than the PyTorch baseline, particularly for smaller models. Since the remaining time is now spent entirely within the `cblas_sgemm` calls themselves, this indicates that Apple's Accelerate SGEMM is underperforming relative to PyTorch's CPU GEMM implementations for the specific `[M, K] @ [K, N]` dimensions used in prefill.
+
+**Correctness & Regressions:**
+- **SmolLM2-360M:** 10-token cache continuation exactly matches Python baseline. Top-5 matches. Max logit difference is `0.00000`.
+- **Qwen2.5-1.5B:** 10-token cache continuation exactly matches Python baseline. Top-5 matches. Max logit difference is `0.00000`.

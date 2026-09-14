@@ -22,7 +22,7 @@ void kernel_relu_f32(const float* in, float* out, int64_t n);
 
 void kernel_gemv_fp16(const float* x, const void* W, float* out, int64_t K, int64_t N);
 void kernel_gemv_fp16_acc(const float* x, const void* W, float* out, int64_t K, int64_t N);
-void kernel_gemm_fp16(const float* x, const void* W, float* out, int64_t M, int64_t K, int64_t N);
+void kernel_gemm_fp16(const float* x, const void* W, float* out, int64_t M, int64_t K, int64_t N, float** f32_cache_ptr = nullptr);
 void kernel_gemv_fp16_fused_swiglu(const float* x, const void* W_gate_up, float* hidden_out, int64_t K, int64_t intermediate);
 
 void kernel_gemv_f32(const float* x, const float* W, float* out, int64_t K, int64_t N);

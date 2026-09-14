@@ -1,6 +1,8 @@
 #include "csrc/kernels/cpu/math_kernels.h"
 #include "csrc/kernels/cpu/simd_utils.h"
 #include <cmath>
+#include <chrono>
+#include <memory>
 
 void kernel_add_f32(const float* a, const float* b, float* out, int64_t n) {
     int64_t i = 0;
@@ -322,27 +324,43 @@ extern "C" void kernel_gemv_fp16_acc(const float* x, const void* W, float* out, 
 // x: (M, K) float32
 // W: (N, K) __fp16
 // out: (M, N) float32
-extern "C" void kernel_gemm_fp16(const float* x, const void* W, float* out, int64_t M, int64_t K, int64_t N) {
+extern "C" void kernel_gemm_fp16(const float* x, const void* W, float* out, int64_t M, int64_t K, int64_t N, float** f32_cache_ptr) {
 #if defined(__APPLE__) && defined(__aarch64__)
     const __fp16* W16 = reinterpret_cast<const __fp16*>(W);
-    // Allocate a temporary float32 buffer for the weights without zero-initializing!
-    // This is for M > 1 (prefill) so the cast overhead is easily amortized by cblas_sgemm speed!
-    std::unique_ptr<float[]> w_f32(new float[N * K]);
-    float* w_f32_ptr = w_f32.get();
     
-    // Convert FP16 weights to FP32.
-    // Multithread the cast to make it lightning fast.
-    int n_threads = (N * K >= 1024*1024) ? 8 : 2;
-    int64_t chunk = (N * K) / n_threads;
-    dispatch_apply(n_threads, get_compute_queue(), ^(size_t t) {
-        int64_t start = t * chunk;
-        int64_t end = (t == static_cast<size_t>(n_threads - 1)) ? (N * K) : (t + 1) * chunk;
-        for (int64_t i = start; i < end; ++i) {
-            w_f32_ptr[i] = static_cast<float>(W16[i]);
-        }
-    });
+    float* w_f32_ptr = nullptr;
+    std::unique_ptr<float[]> local_w_f32; // Fallback if no cache pointer is provided
 
-    // Call Apple's hyper-optimized BLAS SGEMM!
+    if (f32_cache_ptr != nullptr) {
+        if (*f32_cache_ptr == nullptr) {
+            *f32_cache_ptr = new float[N * K];
+            w_f32_ptr = *f32_cache_ptr;
+            int n_threads = (N * K >= 1024*1024) ? 8 : 2;
+            int64_t chunk = (N * K) / n_threads;
+            dispatch_apply(n_threads, get_compute_queue(), ^(size_t t) {
+                int64_t start = t * chunk;
+                int64_t end = (t == static_cast<size_t>(n_threads - 1)) ? (N * K) : (t + 1) * chunk;
+                for (int64_t i = start; i < end; ++i) {
+                    w_f32_ptr[i] = static_cast<float>(W16[i]);
+                }
+            });
+        } else {
+            w_f32_ptr = *f32_cache_ptr;
+        }
+    } else {
+        local_w_f32.reset(new float[N * K]);
+        w_f32_ptr = local_w_f32.get();
+        int n_threads = (N * K >= 1024*1024) ? 8 : 2;
+        int64_t chunk = (N * K) / n_threads;
+        dispatch_apply(n_threads, get_compute_queue(), ^(size_t t) {
+            int64_t start = t * chunk;
+            int64_t end = (t == static_cast<size_t>(n_threads - 1)) ? (N * K) : (t + 1) * chunk;
+            for (int64_t i = start; i < end; ++i) {
+                w_f32_ptr[i] = static_cast<float>(W16[i]);
+            }
+        });
+    }
+
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans,
                 static_cast<int>(M), static_cast<int>(N), static_cast<int>(K),
                 1.0f, x, static_cast<int>(K),

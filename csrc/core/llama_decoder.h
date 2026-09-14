@@ -54,6 +54,11 @@ struct FastLayerWeights {
     const float* qkv_bias;
     float* k_cache;
     float* v_cache;
+
+    mutable float* qkv_weight_f32 = nullptr;
+    mutable float* o_weight_f32 = nullptr;
+    mutable float* gate_up_weight_f32 = nullptr;
+    mutable float* down_weight_f32 = nullptr;
 };
 
 enum DecoderTaskType {
