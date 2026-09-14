@@ -263,12 +263,21 @@ def generate(
     gen_start_time = time.time()
     needs_sampling = (temperature > 1e-6 or repetition_penalty != 1.0 or top_p < 1.0)
     
-    # Unconditionally use the fully batched Python model for prefill
-    tokens_tensor = vai.tensor(np.array([current_tokens], dtype=np.int64)).to(device)
-    logits = model(tokens_tensor, start_pos=0, last_token_only=True, kv_cache=kv_cache)
-    logits_np = logits.numpy()
-    last_logits = logits_np[0, -1, :] if logits_np.ndim == 3 else logits_np[-1, :]
-    next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+    if fast_decoder is not None:
+        if needs_sampling:
+            logits_tensor = fast_decoder.prefill_logits(current_tokens)
+            logits_np = logits_tensor.numpy()
+            last_logits = logits_np[0, :] if logits_np.ndim == 2 else logits_np[:]
+            next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
+        else:
+            next_token = fast_decoder.prefill(current_tokens)
+    else:
+        # Python model fallback
+        tokens_tensor = vai.tensor(np.array([current_tokens], dtype=np.int64)).to(device)
+        logits = model(tokens_tensor, start_pos=0, last_token_only=True, kv_cache=kv_cache)
+        logits_np = logits.numpy()
+        last_logits = logits_np[0, -1, :] if logits_np.ndim == 3 else logits_np[-1, :]
+        next_token = _sample_token(last_logits, temperature, top_p, repetition_penalty, current_tokens)
         
     ttft = time.time() - gen_start_time
     generated_tokens.append(next_token)

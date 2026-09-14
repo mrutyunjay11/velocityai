@@ -649,58 +649,94 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
     }
 
     // 2. Layer-by-layer execution: weights loaded ONCE into cache per layer for all tokens
+    std::vector<float> norm_batch(N * dim_);
+    std::vector<float> qkv_batch(N * qkv_dim);
+    std::vector<float> attn_out_batch(N * num_heads_ * head_dim_);
+    std::vector<float> norm2_batch(N * dim_);
+    std::vector<float> gate_up_batch(N * intermediate_size_ * 2);
+    std::vector<float> swiglu_batch(N * intermediate_size_);
+    std::vector<float> down_batch(N * dim_);
+
     for (int64_t l = 0; l < num_layers_; ++l) {
         const auto& layer = layers_[l];
 
+        // RMSNorm 1: batch over N
         for (int64_t pos = 0; pos < N; ++pos) {
-            float* h_p = h_batch.data() + pos * dim_;
+            kernel_rmsnorm_f32(h_batch.data() + pos * dim_, layer.input_layernorm_weight, norm_batch.data() + pos * dim_, 1, dim_, eps_);
+        }
 
-            // RMSNorm 1
-            kernel_rmsnorm_f32(h_p, layer.input_layernorm_weight, norm_buf_.data(), 1, dim_, eps_);
-            float_to_fp16_neon(norm_buf_.data(), reinterpret_cast<__fp16*>(x16_buf_.data()), dim_);
+        // QKV GEMM: QKV_batch = norm_batch @ qkv_weight^T
+        kernel_gemm_fp16(norm_batch.data(), layer.qkv_weight, qkv_batch.data(), N, dim_, qkv_dim);
 
-            // QKV GEMV
-            run_parallel_task(TASK_QKV, layer.qkv_weight, qkv_buf_.data(), dim_, qkv_dim);
-
-            if (layer.qkv_bias) {
+        // Add QKV bias if present
+        if (layer.qkv_bias) {
+            for (int64_t pos = 0; pos < N; ++pos) {
+                float* qkv_ptr = qkv_batch.data() + pos * qkv_dim;
                 for (int64_t i = 0; i < qkv_dim; ++i) {
-                    qkv_buf_[i] += layer.qkv_bias[i];
+                    qkv_ptr[i] += layer.qkv_bias[i];
                 }
             }
+        }
 
-            // Attention (applies RoPE at position 'pos', updates KV cache, and computes context)
-            const float* cos_ptr = cos_table_.data() + pos * head_dim_;
-            const float* sin_ptr = sin_table_.data() + pos * head_dim_;
-            kernel_attention_decode_f32(
-                qkv_buf_.data(),
-                qkv_buf_.data() + num_heads_ * head_dim_,
-                qkv_buf_.data() + (num_heads_ + num_kv_heads_) * head_dim_,
-                layer.k_cache,
-                layer.v_cache,
-                cos_ptr,
-                sin_ptr,
-                attn_out_buf_.data(),
-                num_heads_,
-                num_kv_heads_,
-                head_dim_,
-                max_seq_len_,
-                pos
-            );
-            float_to_fp16_neon(attn_out_buf_.data(), reinterpret_cast<__fp16*>(x16_buf_.data()), num_heads_ * head_dim_);
+        // Batched Causal Attention
+        kernel_attention_prefill_f32(
+            qkv_batch.data(),
+            layer.k_cache,
+            layer.v_cache,
+            cos_table_.data(),
+            sin_table_.data(),
+            attn_out_batch.data(),
+            N,
+            0, // start_pos is 0 for initial prefill
+            num_heads_,
+            num_kv_heads_,
+            head_dim_,
+            max_seq_len_
+        );
 
-            // O GEMV (accumulates into h_p)
-            run_parallel_task(TASK_O, layer.o_weight, h_p, num_heads_ * head_dim_, dim_);
+        // O GEMM: O_batch = attn_out_batch @ o_weight^T
+        kernel_gemm_fp16(attn_out_batch.data(), layer.o_weight, down_batch.data(), N, num_heads_ * head_dim_, dim_);
 
-            // RMSNorm 2
-            kernel_rmsnorm_f32(h_p, layer.post_attn_layernorm_weight, norm2_buf_.data(), 1, dim_, eps_);
-            float_to_fp16_neon(norm2_buf_.data(), reinterpret_cast<__fp16*>(x16_buf_.data()), dim_);
+        // Residual 1 & RMSNorm 2
+        for (int64_t pos = 0; pos < N; ++pos) {
+            float* h_p = h_batch.data() + pos * dim_;
+            float* o_p = down_batch.data() + pos * dim_;
+#if defined(__APPLE__) && defined(__aarch64__)
+            for (int64_t i = 0; i <= dim_ - 4; i += 4) {
+                vst1q_f32(h_p + i, vaddq_f32(vld1q_f32(h_p + i), vld1q_f32(o_p + i)));
+            }
+            for (int64_t i = (dim_ / 4) * 4; i < dim_; ++i) h_p[i] += o_p[i];
+#else
+            for (int64_t i = 0; i < dim_; ++i) h_p[i] += o_p[i];
+#endif
+            kernel_rmsnorm_f32(h_p, layer.post_attn_layernorm_weight, norm2_batch.data() + pos * dim_, 1, dim_, eps_);
+        }
 
-            // SwiGLU GEMV
-            run_parallel_task(TASK_SWIGLU, layer.gate_up_weight, swiglu_buf_.data(), dim_, intermediate_size_);
-            float_to_fp16_neon(swiglu_buf_.data(), reinterpret_cast<__fp16*>(x16_buf_.data()), intermediate_size_);
+        // Gate-Up GEMM: gate_up_batch = norm2_batch @ gate_up_weight^T
+        kernel_gemm_fp16(norm2_batch.data(), layer.gate_up_weight, gate_up_batch.data(), N, dim_, intermediate_size_ * 2);
 
-            // Down GEMV (accumulates into h_p)
-            run_parallel_task(TASK_DOWN, layer.down_weight, h_p, intermediate_size_, dim_);
+        // Batched SwiGLU
+        for (int64_t pos = 0; pos < N; ++pos) {
+            float* gate_up_ptr = gate_up_batch.data() + pos * intermediate_size_ * 2;
+            float* swiglu_ptr = swiglu_batch.data() + pos * intermediate_size_;
+            kernel_swiglu_f32(gate_up_ptr, gate_up_ptr + intermediate_size_, swiglu_ptr, intermediate_size_);
+        }
+
+        // Down GEMM: down_batch = swiglu_batch @ down_weight^T
+        kernel_gemm_fp16(swiglu_batch.data(), layer.down_weight, down_batch.data(), N, intermediate_size_, dim_);
+
+        // Residual 2
+        for (int64_t pos = 0; pos < N; ++pos) {
+            float* h_p = h_batch.data() + pos * dim_;
+            float* d_p = down_batch.data() + pos * dim_;
+#if defined(__APPLE__) && defined(__aarch64__)
+            for (int64_t i = 0; i <= dim_ - 4; i += 4) {
+                vst1q_f32(h_p + i, vaddq_f32(vld1q_f32(h_p + i), vld1q_f32(d_p + i)));
+            }
+            for (int64_t i = (dim_ / 4) * 4; i < dim_; ++i) h_p[i] += d_p[i];
+#else
+            for (int64_t i = 0; i < dim_; ++i) h_p[i] += d_p[i];
+#endif
         }
     }
 

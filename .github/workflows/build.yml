@@ -1,0 +1,33 @@
+name: Build VelocityAI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest numpy
+        
+    - name: Build C++ Extension
+      run: |
+        python setup.py build_ext --inplace
+        
+    - name: Test import and setup
+      run: |
+        python -c "import _velocityai_c; print('Successfully imported _velocityai_c')"

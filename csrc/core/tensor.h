@@ -31,7 +31,7 @@ struct Storage {
             } else if (dev.is_metal()) {
                 data = metal::allocate(nbytes);
             } else {
-                // CUDA allocation placeholder for later phases
+                // CUDA not implemented
                 throw DeviceError("CUDA allocation not yet initialized");
             }
         }

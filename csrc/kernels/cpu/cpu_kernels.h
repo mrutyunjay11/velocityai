@@ -23,6 +23,22 @@ void kernel_swiglu_f32(const float* gate, const float* up, float* out, int64_t n
 void kernel_attention_f32(const float* Q, const float* K, const float* V, float* out, 
                           int64_t batch, int64_t num_heads, int64_t seq_len, int64_t head_dim);
 
+void kernel_attention_prefill_f32(
+    float* QKV,             // (N, (num_heads + 2 * num_kv_heads) * head_dim)
+    float* K_cache,         // (max_seq_len, num_kv_heads, head_dim)
+    float* V_cache,         // (max_seq_len, num_kv_heads, head_dim)
+    const float* cos_table, // (max_seq_len, head_dim)
+    const float* sin_table,
+    float* out_context,     // (N, num_heads * head_dim)
+    int64_t N,
+    int64_t start_pos,      // offset into KV cache (0 for initial prefill)
+    int64_t num_heads,
+    int64_t num_kv_heads,
+    int64_t head_dim,
+    int64_t max_seq_len
+);
+
+
 void kernel_attention_decode_f32(
     float* Q,
     float* K,

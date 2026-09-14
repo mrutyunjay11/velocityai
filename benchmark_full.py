@@ -7,8 +7,8 @@ import urllib.parse
 import numpy as np
 
 # Prompt for the benchmark
-PROMPT = "Provide a comprehensive analysis of the P vs NP problem in computational complexity theory. Explain its formal definition, the significance of NP-completeness, and the profound implications that a proof of P = NP would have on modern cryptographic systems such as RSA and elliptic curve cryptography."
-MAX_NEW_TOKENS = 2048
+PROMPT = "Explain the difference between gradient descent and stochastic gradient descent."
+MAX_NEW_TOKENS = 256
 TEMPERATURE = 0.0
 
 def benchmark_ollama(model_name: str = "smollm2:360m", prompt: str = PROMPT, max_tokens: int = MAX_NEW_TOKENS):

@@ -1,7 +1,6 @@
 #include "csrc/core/tensor.h"
 #include "csrc/kernels/cpu/cpu_kernels.h"
 #include "csrc/kernels/metal/metal_backend.h"
-#include "csrc/kernels/metal/metal_backend.h"
 #include <cstring>
 #include <random>
 #include <numeric>
@@ -433,7 +432,7 @@ Tensor Tensor::matmul(const Tensor& other) const {
         throw std::runtime_error("Metal backend not compiled on this platform.");
 #endif
     } else if (device_.is_cuda()) {
-        throw std::runtime_error("CUDA backend not available.");
+        throw std::runtime_error("CUDA backend not implemented — this build targets Metal/CPU only");
     } else {
         // CPU execution
         const float* A = a.data_ptr<float>();
