@@ -112,6 +112,9 @@ void kernel_attention_decode_f32(
                 vd3 = vfmaq_f32(vd3, vld1q_f32(q_ptr + d + 12), vld1q_f32(k_ptr + d + 12));
             }
             float dot = vaddvq_f32(vaddq_f32(vaddq_f32(vd0, vd1), vaddq_f32(vd2, vd3)));
+            for (int64_t d = head_dim & ~15; d < head_dim; ++d) {
+                dot += q_ptr[d] * k_ptr[d];
+            }
 #else
             float dot = 0.0f;
             for (int64_t d = 0; d < head_dim; ++d) {
@@ -146,6 +149,9 @@ void kernel_attention_decode_f32(
                 vst1q_f32(out_h + d + 4, vfmaq_f32(vld1q_f32(out_h + d + 4), vw, vld1q_f32(v_ptr + d + 4)));
                 vst1q_f32(out_h + d + 8, vfmaq_f32(vld1q_f32(out_h + d + 8), vw, vld1q_f32(v_ptr + d + 8)));
                 vst1q_f32(out_h + d + 12, vfmaq_f32(vld1q_f32(out_h + d + 12), vw, vld1q_f32(v_ptr + d + 12)));
+            }
+            for (int64_t d = head_dim & ~15; d < head_dim; ++d) {
+                out_h[d] += w * v_ptr[d];
             }
 #else
             for (int64_t d = 0; d < head_dim; ++d) {
@@ -233,6 +239,9 @@ void kernel_attention_prefill_f32(
                     vd3 = vfmaq_f32(vd3, vld1q_f32(q_ptr + d + 12), vld1q_f32(k_ptr + d + 12));
                 }
                 dot = vaddvq_f32(vaddq_f32(vaddq_f32(vd0, vd1), vaddq_f32(vd2, vd3)));
+                for (int64_t d = head_dim & ~15; d < head_dim; ++d) {
+                    dot += q_ptr[d] * k_ptr[d];
+                }
 #else
                 for (int64_t d = 0; d < head_dim; ++d) {
                     dot += q_ptr[d] * k_ptr[d];
@@ -266,6 +275,9 @@ void kernel_attention_prefill_f32(
                     vst1q_f32(out_ptr + d + 4, vfmaq_f32(vld1q_f32(out_ptr + d + 4), vw, vld1q_f32(v_ptr + d + 4)));
                     vst1q_f32(out_ptr + d + 8, vfmaq_f32(vld1q_f32(out_ptr + d + 8), vw, vld1q_f32(v_ptr + d + 8)));
                     vst1q_f32(out_ptr + d + 12, vfmaq_f32(vld1q_f32(out_ptr + d + 12), vw, vld1q_f32(v_ptr + d + 12)));
+                }
+                for (int64_t d = head_dim & ~15; d < head_dim; ++d) {
+                    out_ptr[d] += w * v_ptr[d];
                 }
 #else
                 for (int64_t d = 0; d < head_dim; ++d) {
