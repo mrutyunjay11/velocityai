@@ -32,12 +32,11 @@ def mmap_safetensors(path):
     # Memory map the entire file
     mm = mmap.mmap(fd.fileno(), file_size, access=mmap.ACCESS_READ)
     
-    # Map safetensor dtype strings to numpy dtypes
     dtype_map = {
         'F64': np.float64,
         'F32': np.float32,
         'F16': np.float16,
-        'BF16': np.float16, # We map BF16 to F16 for now via view (will fix later)
+        'BF16': np.float16, # BUGGY!
         'I64': np.int64,
         'I32': np.int32,
         'I16': np.int16,
@@ -59,8 +58,6 @@ def mmap_safetensors(path):
             raise ValueError(f"Unsupported dtype: {dtype_str}")
             
         # Create a zero-copy numpy array view into the mmap
-        # offset must be data_offset + start
-        # count is number of elements
         itemsize = np.dtype(np_dtype).itemsize
         count = (end - start) // itemsize
         

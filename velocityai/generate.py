@@ -6,12 +6,24 @@ from velocityai.nn.transformer import LlamaModel
 from velocityai.nn.kv_cache import KVCache
 from velocityai.tokenizer import Tokenizer
 
-def _detect_repetition_loop(tokens: list[int], min_len: int = 4, max_len: int = 256, min_repeats: int = 2) -> int:
+def _detect_repetition_loop(tokens: list[int], min_len: int = 2, max_len: int = 256) -> int:
     """Detects if recent generated tokens form an infinite repeating cycle (up to 256 tokens)."""
     n = len(tokens)
-    max_search = min(max_len, n // min_repeats)
-    for l in range(min_len, max_search + 1):
+    for l in range(min_len, min(max_len, n // 2) + 1):
         target = tokens[-l:]
+        
+        # Dynamic minimum repeats based on cycle length to prevent false positives on valid code
+        if l < 8:
+            min_repeats = 4
+        elif l < 16:
+            min_repeats = 3
+        else:
+            min_repeats = 2
+            
+        max_search = n // l
+        if max_search < min_repeats:
+            continue
+            
         repeats = 1
         for r in range(2, min_repeats + 1):
             if tokens[-r * l : -(r - 1) * l] == target:

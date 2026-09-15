@@ -6,6 +6,8 @@ from velocityai.agents.roles import ArchitectAgent, DeveloperAgent, ReviewerAgen
 
 def get_rss_mb():
     # Use macOS native ps command to get RSS of current process in KB, then convert to MB
+    import subprocess
+    import os
     pid = os.getpid()
     try:
         output = subprocess.check_output(['ps', '-o', 'rss=', '-p', str(pid)])
@@ -24,7 +26,7 @@ def main():
     print(f"Base Interpreter RSS: {base_rss:.2f} MB")
 
     # Load Model (Zero-Copy)
-    model, config = vai.load_huggingface_model("HuggingFaceTB/SmolLM2-360M-Instruct")
+    model, config = vai.load_huggingface_model("Qwen/Qwen2.5-1.5B-Instruct")
     
     agent1 = ArchitectAgent(max_tokens=350)
     agent1.model = model  # Shared memory pointer

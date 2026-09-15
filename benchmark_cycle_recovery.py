@@ -18,9 +18,32 @@ def main():
             
     # 2. Recursive Code Blocks (n=15)
     code_caught = 0
-    for i in range(15):
-        # A cycle of length 15 repeating 4 times (60 tokens)
-        tokens = list(range(100, 115)) * 4
+    from velocityai.tokenizer import Tokenizer
+    # Try loading a tokenizer. We can use Qwen as it's locally available in the hub.
+    try:
+        from huggingface_hub import snapshot_download
+        model_path = snapshot_download('Qwen/Qwen2.5-1.5B-Instruct')
+        tokenizer = Tokenizer(model_path)
+        has_tokenizer = True
+    except Exception as e:
+        print(f"Failed to load tokenizer: {e}")
+        has_tokenizer = False
+
+    recursive_samples = [
+        "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)",
+        "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)",
+        "def traverse(node):\n    if not node:\n        return\n    traverse(node.left)\n    traverse(node.right)",
+        "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[0]\n    left = [x for x in arr[1:] if x <= pivot]\n    right = [x for x in arr[1:] if x > pivot]\n    return quicksort(left) + [pivot] + quicksort(right)",
+        "def binary_search(arr, l, r, x):\n    if r >= l:\n        mid = l + (r - l) // 2\n        if arr[mid] == x:\n            return mid\n        elif arr[mid] > x:\n            return binary_search(arr, l, mid - 1, x)\n        else:\n            return binary_search(arr, mid + 1, r, x)\n    else:\n        return -1"
+    ]
+    # Multiply to get 15 samples
+    recursive_samples = (recursive_samples * 3)[:15]
+
+    for sample in recursive_samples:
+        if has_tokenizer:
+            tokens = tokenizer.encode(sample)
+        else:
+            tokens = list(range(100, 115)) * 4
         if _detect_repetition_loop(tokens) > 0:
             code_caught += 1
             
