@@ -36,7 +36,7 @@ def mmap_safetensors(path):
         'F64': np.float64,
         'F32': np.float32,
         'F16': np.float16,
-        'BF16': np.float16, # BUGGY!
+        'BF16': np.uint16,
         'I64': np.int64,
         'I32': np.int32,
         'I16': np.int16,
@@ -62,6 +62,13 @@ def mmap_safetensors(path):
         count = (end - start) // itemsize
         
         arr = np.frombuffer(mm, dtype=np_dtype, offset=data_offset + start, count=count)
+        
+        if dtype_str == 'BF16':
+            # Convert BF16 to FP32: pad 16 bits of 0s to the right
+            arr = arr.astype(np.uint32)
+            arr = np.left_shift(arr, 16)
+            arr = arr.view(np.float32)
+            
         arr = arr.reshape(shape)
         
         tensors[name] = arr
