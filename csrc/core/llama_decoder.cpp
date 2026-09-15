@@ -746,8 +746,10 @@ int64_t FastLlamaDecoder::prefill(const std::vector<int64_t>& prompt_tokens) {
 #endif
         }
     }
+#ifdef VELOCITYAI_DEBUG
     auto end_layer_loop = std::chrono::high_resolution_clock::now();
     printf("[LOOP TOTAL] %.5f\n", std::chrono::duration<double>(end_layer_loop - start_layer_loop).count());
+#endif
 
     // 3. Final token (N-1): compute final RMSNorm + LM Head to produce first generated token
     float* h_last = h_batch.data() + (N - 1) * dim_;
